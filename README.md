@@ -7,5 +7,5 @@ A builder for [BatchStealer](https://github.com/Takaovi/BatchStealer)
 
 # Todo
 * Improve optimization
-  * Doesn't delete unused functions
+  * Delete unused functions
 * Add obfuscation function
