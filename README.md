@@ -9,3 +9,5 @@ A builder for [BatchStealer](https://github.com/Takaovi/BatchStealer)
 * Improve optimization
   * Delete unused functions
 * Add obfuscation function
+* Dark theme? No.
+  * Winforms is horrible for this. 
