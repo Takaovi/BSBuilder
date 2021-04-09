@@ -11,3 +11,4 @@ A builder for [BatchStealer](https://github.com/Takaovi/BatchStealer)
 * Add obfuscation function
 * Dark theme? No.
   * Winforms is horrible for this. 
+* If URL blank and restart program make it do something instead of not totally opening
