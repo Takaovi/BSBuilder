@@ -418,5 +418,17 @@ namespace BSBuilder.Properties {
                 this["batchlocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ipconfig {
+            get {
+                return ((bool)(this["ipconfig"]));
+            }
+            set {
+                this["ipconfig"] = value;
+            }
+        }
     }
 }

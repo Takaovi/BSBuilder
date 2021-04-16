@@ -91,6 +91,7 @@
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.ipconfigcheckbox = new System.Windows.Forms.CheckBox();
             this.recurringpanel.SuspendLayout();
             this.allpanel.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -191,7 +192,7 @@
             // tasklistcheckbox
             // 
             this.tasklistcheckbox.AutoSize = true;
-            this.tasklistcheckbox.Location = new System.Drawing.Point(129, 22);
+            this.tasklistcheckbox.Location = new System.Drawing.Point(126, 22);
             this.tasklistcheckbox.Name = "tasklistcheckbox";
             this.tasklistcheckbox.Size = new System.Drawing.Size(62, 17);
             this.tasklistcheckbox.TabIndex = 10;
@@ -202,7 +203,7 @@
             // netusercheckbox
             // 
             this.netusercheckbox.AutoSize = true;
-            this.netusercheckbox.Location = new System.Drawing.Point(197, 22);
+            this.netusercheckbox.Location = new System.Drawing.Point(188, 22);
             this.netusercheckbox.Name = "netusercheckbox";
             this.netusercheckbox.Size = new System.Drawing.Size(66, 17);
             this.netusercheckbox.TabIndex = 11;
@@ -213,7 +214,7 @@
             // qusercheckbox
             // 
             this.qusercheckbox.AutoSize = true;
-            this.qusercheckbox.Location = new System.Drawing.Point(269, 22);
+            this.qusercheckbox.Location = new System.Drawing.Point(254, 22);
             this.qusercheckbox.Name = "qusercheckbox";
             this.qusercheckbox.Size = new System.Drawing.Size(79, 17);
             this.qusercheckbox.TabIndex = 12;
@@ -224,7 +225,7 @@
             // cmdkeycheckbox
             // 
             this.cmdkeycheckbox.AutoSize = true;
-            this.cmdkeycheckbox.Location = new System.Drawing.Point(354, 22);
+            this.cmdkeycheckbox.Location = new System.Drawing.Point(334, 22);
             this.cmdkeycheckbox.Name = "cmdkeycheckbox";
             this.cmdkeycheckbox.Size = new System.Drawing.Size(65, 17);
             this.cmdkeycheckbox.TabIndex = 13;
@@ -279,7 +280,7 @@
             // osucheckbox
             // 
             this.osucheckbox.AutoSize = true;
-            this.osucheckbox.Location = new System.Drawing.Point(129, 22);
+            this.osucheckbox.Location = new System.Drawing.Point(126, 22);
             this.osucheckbox.Name = "osucheckbox";
             this.osucheckbox.Size = new System.Drawing.Size(46, 17);
             this.osucheckbox.TabIndex = 18;
@@ -290,7 +291,7 @@
             // discordcheckbox
             // 
             this.discordcheckbox.AutoSize = true;
-            this.discordcheckbox.Location = new System.Drawing.Point(129, 45);
+            this.discordcheckbox.Location = new System.Drawing.Point(126, 45);
             this.discordcheckbox.Name = "discordcheckbox";
             this.discordcheckbox.Size = new System.Drawing.Size(62, 17);
             this.discordcheckbox.TabIndex = 19;
@@ -301,7 +302,7 @@
             // steamcheckbox
             // 
             this.steamcheckbox.AutoSize = true;
-            this.steamcheckbox.Location = new System.Drawing.Point(129, 68);
+            this.steamcheckbox.Location = new System.Drawing.Point(126, 68);
             this.steamcheckbox.Name = "steamcheckbox";
             this.steamcheckbox.Size = new System.Drawing.Size(56, 17);
             this.steamcheckbox.TabIndex = 20;
@@ -312,7 +313,7 @@
             // minecraftcheckbox
             // 
             this.minecraftcheckbox.AutoSize = true;
-            this.minecraftcheckbox.Location = new System.Drawing.Point(129, 91);
+            this.minecraftcheckbox.Location = new System.Drawing.Point(126, 91);
             this.minecraftcheckbox.Name = "minecraftcheckbox";
             this.minecraftcheckbox.Size = new System.Drawing.Size(70, 17);
             this.minecraftcheckbox.TabIndex = 21;
@@ -323,7 +324,7 @@
             // growtopiacheckbox
             // 
             this.growtopiacheckbox.AutoSize = true;
-            this.growtopiacheckbox.Location = new System.Drawing.Point(197, 22);
+            this.growtopiacheckbox.Location = new System.Drawing.Point(188, 22);
             this.growtopiacheckbox.Name = "growtopiacheckbox";
             this.growtopiacheckbox.Size = new System.Drawing.Size(74, 17);
             this.growtopiacheckbox.TabIndex = 22;
@@ -652,6 +653,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.ipconfigcheckbox);
             this.groupBox1.Controls.Add(this.systeminfocheckbox);
             this.groupBox1.Controls.Add(this.cmdkeycheckbox);
             this.groupBox1.Controls.Add(this.tasklistcheckbox);
@@ -775,6 +777,17 @@
             this.button1.Text = "Find";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // ipconfigcheckbox
+            // 
+            this.ipconfigcheckbox.AutoSize = true;
+            this.ipconfigcheckbox.Location = new System.Drawing.Point(399, 22);
+            this.ipconfigcheckbox.Name = "ipconfigcheckbox";
+            this.ipconfigcheckbox.Size = new System.Drawing.Size(66, 17);
+            this.ipconfigcheckbox.TabIndex = 14;
+            this.ipconfigcheckbox.Text = "IPConfig";
+            this.ipconfigcheckbox.UseVisualStyleBackColor = true;
+            this.ipconfigcheckbox.CheckedChanged += new System.EventHandler(this.ipconfigcheckbox_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -881,6 +894,7 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.CheckBox ipconfigcheckbox;
     }
 }
 

