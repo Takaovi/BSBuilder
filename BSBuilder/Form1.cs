@@ -5,7 +5,6 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Diagnostics;
 
-
 namespace BSBuilder
 {
     public partial class Form1 : Form
