@@ -3,7 +3,7 @@ A builder for [BatchStealer](https://github.com/Takaovi/BatchStealer)
 
 # How to use
 
-* Install Visual Studio (I used 2019 version) and build the program
+* Install [Visual Studio](https://visualstudio.microsoft.com/vs/community/) (I used 2019 version) and build the program
 
 # Screenshots
 
