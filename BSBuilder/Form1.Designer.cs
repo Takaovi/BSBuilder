@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richtextbox = new System.Windows.Forms.RichTextBox();
             this.acceptTOScheckbox = new System.Windows.Forms.CheckBox();
             this.startadmincheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -71,6 +70,7 @@
             this.reportendmsgtextbox = new System.Windows.Forms.TextBox();
             this.buildbutton = new System.Windows.Forms.Button();
             this.recurringpanel = new System.Windows.Forms.Panel();
+            this.searchhidepathbutton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.whenscheduledtextbox = new System.Windows.Forms.ComboBox();
             this.allpanel = new System.Windows.Forms.Panel();
@@ -80,18 +80,24 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ipconfigcheckbox = new System.Windows.Forms.CheckBox();
             this.Builderbox = new System.Windows.Forms.GroupBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.inspector = new System.Windows.Forms.GroupBox();
             this.fetchurl = new System.Windows.Forms.TextBox();
-            this.URLBox = new System.Windows.Forms.GroupBox();
-            this.BatchlocationBox = new System.Windows.Forms.GroupBox();
             this.searchbatchbutton = new System.Windows.Forms.Button();
             this.batchlocationtextbox = new System.Windows.Forms.TextBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.inspectorbutton = new System.Windows.Forms.Button();
+            this.exitbutton = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.fetchbutton = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ipconfigcheckbox = new System.Windows.Forms.CheckBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.richtextbox = new System.Windows.Forms.RichTextBox();
+            this.fetchstatus = new System.Windows.Forms.Label();
             this.recurringpanel.SuspendLayout();
             this.allpanel.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -99,30 +105,22 @@
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.Builderbox.SuspendLayout();
-            this.inspector.SuspendLayout();
-            this.URLBox.SuspendLayout();
-            this.BatchlocationBox.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // richtextbox
-            // 
-            this.richtextbox.Location = new System.Drawing.Point(8, 21);
-            this.richtextbox.Name = "richtextbox";
-            this.richtextbox.ReadOnly = true;
-            this.richtextbox.Size = new System.Drawing.Size(728, 598);
-            this.richtextbox.TabIndex = 1;
-            this.richtextbox.Text = "";
             // 
             // acceptTOScheckbox
             // 
             this.acceptTOScheckbox.AutoSize = true;
-            this.acceptTOScheckbox.Location = new System.Drawing.Point(52, -1);
+            this.acceptTOScheckbox.BackColor = System.Drawing.Color.White;
+            this.acceptTOScheckbox.Location = new System.Drawing.Point(48, -1);
             this.acceptTOScheckbox.Name = "acceptTOScheckbox";
             this.acceptTOScheckbox.Size = new System.Drawing.Size(85, 17);
             this.acceptTOScheckbox.TabIndex = 2;
             this.acceptTOScheckbox.Text = "Accept TOS";
-            this.acceptTOScheckbox.UseVisualStyleBackColor = true;
+            this.acceptTOScheckbox.UseVisualStyleBackColor = false;
             this.acceptTOScheckbox.CheckedChanged += new System.EventHandler(this.acceptTOScheckbox_CheckedChanged);
             // 
             // startadmincheckbox
@@ -174,7 +172,7 @@
             // 
             this.hidepathtextbox.Location = new System.Drawing.Point(6, 20);
             this.hidepathtextbox.Name = "hidepathtextbox";
-            this.hidepathtextbox.Size = new System.Drawing.Size(194, 20);
+            this.hidepathtextbox.Size = new System.Drawing.Size(147, 20);
             this.hidepathtextbox.TabIndex = 7;
             this.hidepathtextbox.TextChanged += new System.EventHandler(this.hidepathtextbox_TextChanged);
             // 
@@ -335,7 +333,7 @@
             // recurringcheckbox
             // 
             this.recurringcheckbox.AutoSize = true;
-            this.recurringcheckbox.Location = new System.Drawing.Point(447, 13);
+            this.recurringcheckbox.Location = new System.Drawing.Point(61, 0);
             this.recurringcheckbox.Name = "recurringcheckbox";
             this.recurringcheckbox.Size = new System.Drawing.Size(15, 14);
             this.recurringcheckbox.TabIndex = 23;
@@ -362,7 +360,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(310, 86);
+            this.label5.Location = new System.Drawing.Point(297, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 27;
@@ -439,7 +437,7 @@
             // vbsnametextbox
             // 
             this.vbsnametextbox.AutoSize = true;
-            this.vbsnametextbox.Location = new System.Drawing.Point(310, 45);
+            this.vbsnametextbox.Location = new System.Drawing.Point(299, 45);
             this.vbsnametextbox.Name = "vbsnametextbox";
             this.vbsnametextbox.Size = new System.Drawing.Size(87, 13);
             this.vbsnametextbox.TabIndex = 37;
@@ -500,8 +498,10 @@
             // 
             // buildbutton
             // 
-            this.buildbutton.BackColor = System.Drawing.Color.Gainsboro;
-            this.buildbutton.Location = new System.Drawing.Point(5, 559);
+            this.buildbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.buildbutton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buildbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buildbutton.Location = new System.Drawing.Point(5, 560);
             this.buildbutton.Name = "buildbutton";
             this.buildbutton.Size = new System.Drawing.Size(466, 40);
             this.buildbutton.TabIndex = 43;
@@ -512,9 +512,10 @@
             // recurringpanel
             // 
             this.recurringpanel.BackColor = System.Drawing.Color.Transparent;
+            this.recurringpanel.Controls.Add(this.hidepathtextbox);
+            this.recurringpanel.Controls.Add(this.searchhidepathbutton);
             this.recurringpanel.Controls.Add(this.label12);
             this.recurringpanel.Controls.Add(this.whenscheduledtextbox);
-            this.recurringpanel.Controls.Add(this.hidepathtextbox);
             this.recurringpanel.Controls.Add(this.label3);
             this.recurringpanel.Controls.Add(this.updateurltextbox);
             this.recurringpanel.Controls.Add(this.label4);
@@ -534,6 +535,19 @@
             this.recurringpanel.Name = "recurringpanel";
             this.recurringpanel.Size = new System.Drawing.Size(447, 147);
             this.recurringpanel.TabIndex = 44;
+            // 
+            // searchhidepathbutton
+            // 
+            this.searchhidepathbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.searchhidepathbutton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.searchhidepathbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchhidepathbutton.Location = new System.Drawing.Point(160, 19);
+            this.searchhidepathbutton.Name = "searchhidepathbutton";
+            this.searchhidepathbutton.Size = new System.Drawing.Size(42, 22);
+            this.searchhidepathbutton.TabIndex = 45;
+            this.searchhidepathbutton.Text = "Find";
+            this.searchhidepathbutton.UseVisualStyleBackColor = false;
+            this.searchhidepathbutton.Click += new System.EventHandler(this.searchhidepathbutton_Click);
             // 
             // label12
             // 
@@ -565,7 +579,7 @@
             // 
             // allpanel
             // 
-            this.allpanel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.allpanel.BackColor = System.Drawing.Color.Transparent;
             this.allpanel.Controls.Add(this.obfuscatecheckbox);
             this.allpanel.Controls.Add(this.optimizecheckbox);
             this.allpanel.Controls.Add(this.groupBox4);
@@ -605,6 +619,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.Color.Transparent;
             this.groupBox4.Controls.Add(this.startadmincheckbox);
             this.groupBox4.Controls.Add(this.webhooktextbox);
             this.groupBox4.Controls.Add(this.reportstartmsgtextbox);
@@ -613,6 +628,7 @@
             this.groupBox4.Controls.Add(this.selfdeletecheckbox);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.reportendmsgtextbox);
+            this.groupBox4.ForeColor = System.Drawing.Color.Black;
             this.groupBox4.Location = new System.Drawing.Point(6, 3);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(465, 168);
@@ -624,6 +640,8 @@
             // 
             this.groupBox3.Controls.Add(this.recurringcheckbox);
             this.groupBox3.Controls.Add(this.recurringpanel);
+            this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox3.ForeColor = System.Drawing.Color.Black;
             this.groupBox3.Location = new System.Drawing.Point(6, 358);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(465, 175);
@@ -643,6 +661,7 @@
             this.groupBox2.Controls.Add(this.operacheckbox);
             this.groupBox2.Controls.Add(this.minecraftcheckbox);
             this.groupBox2.Controls.Add(this.growtopiacheckbox);
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(5, 230);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(466, 122);
@@ -659,123 +678,13 @@
             this.groupBox1.Controls.Add(this.tasklistcheckbox);
             this.groupBox1.Controls.Add(this.qusercheckbox);
             this.groupBox1.Controls.Add(this.netusercheckbox);
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(5, 176);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(466, 50);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
-            // 
-            // Builderbox
-            // 
-            this.Builderbox.Controls.Add(this.acceptTOScheckbox);
-            this.Builderbox.Controls.Add(this.allpanel);
-            this.Builderbox.Location = new System.Drawing.Point(8, 66);
-            this.Builderbox.Name = "Builderbox";
-            this.Builderbox.Size = new System.Drawing.Size(488, 630);
-            this.Builderbox.TabIndex = 48;
-            this.Builderbox.TabStop = false;
-            this.Builderbox.Text = "Builder";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label13.Location = new System.Drawing.Point(6, 15);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(280, 13);
-            this.label13.TabIndex = 47;
-            this.label13.Text = "This is a builder tool for github.com/Takaovi/BatchStealer";
-            // 
-            // inspector
-            // 
-            this.inspector.Controls.Add(this.richtextbox);
-            this.inspector.Location = new System.Drawing.Point(502, 66);
-            this.inspector.Name = "inspector";
-            this.inspector.Size = new System.Drawing.Size(742, 630);
-            this.inspector.TabIndex = 49;
-            this.inspector.TabStop = false;
-            this.inspector.Text = "Inspector";
-            // 
-            // fetchurl
-            // 
-            this.fetchurl.Location = new System.Drawing.Point(6, 20);
-            this.fetchurl.Name = "fetchurl";
-            this.fetchurl.Size = new System.Drawing.Size(476, 20);
-            this.fetchurl.TabIndex = 43;
-            this.fetchurl.TextChanged += new System.EventHandler(this.fetchurl_TextChanged);
-            // 
-            // URLBox
-            // 
-            this.URLBox.Controls.Add(this.fetchurl);
-            this.URLBox.Location = new System.Drawing.Point(8, 6);
-            this.URLBox.Name = "URLBox";
-            this.URLBox.Size = new System.Drawing.Size(488, 56);
-            this.URLBox.TabIndex = 50;
-            this.URLBox.TabStop = false;
-            this.URLBox.Text = "Batch fetch URL (Restart to load)";
-            // 
-            // BatchlocationBox
-            // 
-            this.BatchlocationBox.Controls.Add(this.searchbatchbutton);
-            this.BatchlocationBox.Controls.Add(this.batchlocationtextbox);
-            this.BatchlocationBox.Location = new System.Drawing.Point(502, 6);
-            this.BatchlocationBox.Name = "BatchlocationBox";
-            this.BatchlocationBox.Size = new System.Drawing.Size(445, 56);
-            this.BatchlocationBox.TabIndex = 51;
-            this.BatchlocationBox.TabStop = false;
-            this.BatchlocationBox.Text = "Batch location";
-            // 
-            // searchbatchbutton
-            // 
-            this.searchbatchbutton.Location = new System.Drawing.Point(362, 18);
-            this.searchbatchbutton.Name = "searchbatchbutton";
-            this.searchbatchbutton.Size = new System.Drawing.Size(75, 23);
-            this.searchbatchbutton.TabIndex = 44;
-            this.searchbatchbutton.Text = "Find";
-            this.searchbatchbutton.UseVisualStyleBackColor = true;
-            this.searchbatchbutton.Click += new System.EventHandler(this.searchbatchbutton_Click);
-            // 
-            // batchlocationtextbox
-            // 
-            this.batchlocationtextbox.Location = new System.Drawing.Point(6, 20);
-            this.batchlocationtextbox.Name = "batchlocationtextbox";
-            this.batchlocationtextbox.ReadOnly = true;
-            this.batchlocationtextbox.Size = new System.Drawing.Size(359, 20);
-            this.batchlocationtextbox.TabIndex = 43;
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.label14);
-            this.groupBox9.Controls.Add(this.button1);
-            this.groupBox9.Controls.Add(this.label13);
-            this.groupBox9.Location = new System.Drawing.Point(953, 6);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(291, 56);
-            this.groupBox9.TabIndex = 52;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Info";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label14.Location = new System.Drawing.Point(69, 32);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(159, 13);
-            this.label14.TabIndex = 48;
-            this.label14.Text = "Open source and not to be sold.";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(364, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Find";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // ipconfigcheckbox
             // 
@@ -788,17 +697,229 @@
             this.ipconfigcheckbox.UseVisualStyleBackColor = true;
             this.ipconfigcheckbox.CheckedChanged += new System.EventHandler(this.ipconfigcheckbox_CheckedChanged);
             // 
+            // Builderbox
+            // 
+            this.Builderbox.BackColor = System.Drawing.Color.Transparent;
+            this.Builderbox.Controls.Add(this.acceptTOScheckbox);
+            this.Builderbox.Controls.Add(this.allpanel);
+            this.Builderbox.ForeColor = System.Drawing.Color.Black;
+            this.Builderbox.Location = new System.Drawing.Point(7, 45);
+            this.Builderbox.Name = "Builderbox";
+            this.Builderbox.Size = new System.Drawing.Size(488, 630);
+            this.Builderbox.TabIndex = 48;
+            this.Builderbox.TabStop = false;
+            this.Builderbox.Text = "Builder";
+            // 
+            // fetchurl
+            // 
+            this.fetchurl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.fetchurl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fetchurl.Font = new System.Drawing.Font("Noto Sans", 9F);
+            this.fetchurl.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.fetchurl.Location = new System.Drawing.Point(5, 22);
+            this.fetchurl.Name = "fetchurl";
+            this.fetchurl.Size = new System.Drawing.Size(292, 24);
+            this.fetchurl.TabIndex = 43;
+            this.fetchurl.TextChanged += new System.EventHandler(this.fetchurl_TextChanged);
+            // 
+            // searchbatchbutton
+            // 
+            this.searchbatchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.searchbatchbutton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.searchbatchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbatchbutton.ForeColor = System.Drawing.Color.White;
+            this.searchbatchbutton.Location = new System.Drawing.Point(295, 22);
+            this.searchbatchbutton.Name = "searchbatchbutton";
+            this.searchbatchbutton.Size = new System.Drawing.Size(50, 24);
+            this.searchbatchbutton.TabIndex = 44;
+            this.searchbatchbutton.Text = "Find";
+            this.searchbatchbutton.UseVisualStyleBackColor = false;
+            this.searchbatchbutton.Click += new System.EventHandler(this.searchbatchbutton_Click);
+            // 
+            // batchlocationtextbox
+            // 
+            this.batchlocationtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.batchlocationtextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.batchlocationtextbox.Font = new System.Drawing.Font("Noto Sans", 9F);
+            this.batchlocationtextbox.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.batchlocationtextbox.Location = new System.Drawing.Point(5, 22);
+            this.batchlocationtextbox.Name = "batchlocationtextbox";
+            this.batchlocationtextbox.ReadOnly = true;
+            this.batchlocationtextbox.Size = new System.Drawing.Size(293, 24);
+            this.batchlocationtextbox.TabIndex = 43;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.exitbutton);
+            this.panel1.Controls.Add(this.inspectorbutton);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(502, 39);
+            this.panel1.TabIndex = 52;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // inspectorbutton
+            // 
+            this.inspectorbutton.FlatAppearance.BorderSize = 0;
+            this.inspectorbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inspectorbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inspectorbutton.ForeColor = System.Drawing.Color.White;
+            this.inspectorbutton.Location = new System.Drawing.Point(422, 0);
+            this.inspectorbutton.Name = "inspectorbutton";
+            this.inspectorbutton.Size = new System.Drawing.Size(39, 39);
+            this.inspectorbutton.TabIndex = 0;
+            this.inspectorbutton.Text = ">";
+            this.inspectorbutton.UseVisualStyleBackColor = true;
+            this.inspectorbutton.Click += new System.EventHandler(this.inspectorbutton_Click);
+            // 
+            // exitbutton
+            // 
+            this.exitbutton.FlatAppearance.BorderSize = 0;
+            this.exitbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitbutton.ForeColor = System.Drawing.Color.White;
+            this.exitbutton.Location = new System.Drawing.Point(461, 0);
+            this.exitbutton.Name = "exitbutton";
+            this.exitbutton.Size = new System.Drawing.Size(39, 39);
+            this.exitbutton.TabIndex = 1;
+            this.exitbutton.Text = "X";
+            this.exitbutton.UseVisualStyleBackColor = true;
+            this.exitbutton.Click += new System.EventHandler(this.exitbutton_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Noto Sans Cond", 15.75F);
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(4, 6);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(93, 28);
+            this.label13.TabIndex = 48;
+            this.label13.Text = "BSBuilder";
+            this.label13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label13_MouseDown);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.panel2.Controls.Add(this.fetchstatus);
+            this.panel2.Controls.Add(this.richtextbox);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Location = new System.Drawing.Point(501, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(733, 690);
+            this.panel2.TabIndex = 53;
+            // 
+            // fetchbutton
+            // 
+            this.fetchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.fetchbutton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.fetchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fetchbutton.ForeColor = System.Drawing.Color.White;
+            this.fetchbutton.Location = new System.Drawing.Point(294, 22);
+            this.fetchbutton.Name = "fetchbutton";
+            this.fetchbutton.Size = new System.Drawing.Size(50, 24);
+            this.fetchbutton.TabIndex = 48;
+            this.fetchbutton.Text = "Fetch";
+            this.fetchbutton.UseVisualStyleBackColor = false;
+            this.fetchbutton.Click += new System.EventHandler(this.fetchbutton_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.label15.ForeColor = System.Drawing.Color.DimGray;
+            this.label15.Location = new System.Drawing.Point(65, 5);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(204, 15);
+            this.label15.TabIndex = 47;
+            this.label15.Text = "(Use if fetching from URL didn\'t work)";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.BackColor = System.Drawing.Color.Transparent;
+            this.label14.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(3, 4);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(59, 15);
+            this.label14.TabIndex = 50;
+            this.label14.Text = "Fetch URL";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(4, 5);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 15);
+            this.label16.TabIndex = 51;
+            this.label16.Text = "Load PATH";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.panel3.Controls.Add(this.fetchbutton);
+            this.panel3.Controls.Add(this.fetchurl);
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Location = new System.Drawing.Point(7, 12);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(353, 51);
+            this.panel3.TabIndex = 52;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.panel4.Controls.Add(this.label16);
+            this.panel4.Controls.Add(this.label15);
+            this.panel4.Controls.Add(this.searchbatchbutton);
+            this.panel4.Controls.Add(this.batchlocationtextbox);
+            this.panel4.Location = new System.Drawing.Point(372, 12);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(353, 51);
+            this.panel4.TabIndex = 2;
+            // 
+            // richtextbox
+            // 
+            this.richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richtextbox.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.richtextbox.ForeColor = System.Drawing.Color.Lime;
+            this.richtextbox.Location = new System.Drawing.Point(7, 91);
+            this.richtextbox.Name = "richtextbox";
+            this.richtextbox.ReadOnly = true;
+            this.richtextbox.Size = new System.Drawing.Size(718, 584);
+            this.richtextbox.TabIndex = 1;
+            this.richtextbox.Text = "";
+            // 
+            // fetchstatus
+            // 
+            this.fetchstatus.AutoSize = true;
+            this.fetchstatus.BackColor = System.Drawing.Color.Transparent;
+            this.fetchstatus.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.fetchstatus.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.fetchstatus.Location = new System.Drawing.Point(10, 69);
+            this.fetchstatus.Name = "fetchstatus";
+            this.fetchstatus.Size = new System.Drawing.Size(0, 15);
+            this.fetchstatus.TabIndex = 51;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1256, 702);
-            this.Controls.Add(this.groupBox9);
-            this.Controls.Add(this.BatchlocationBox);
-            this.Controls.Add(this.URLBox);
-            this.Controls.Add(this.inspector);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1232, 679);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Builderbox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
@@ -819,19 +940,19 @@
             this.groupBox1.PerformLayout();
             this.Builderbox.ResumeLayout(false);
             this.Builderbox.PerformLayout();
-            this.inspector.ResumeLayout(false);
-            this.URLBox.ResumeLayout(false);
-            this.URLBox.PerformLayout();
-            this.BatchlocationBox.ResumeLayout(false);
-            this.BatchlocationBox.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.RichTextBox richtextbox;
         private System.Windows.Forms.CheckBox acceptTOScheckbox;
         private System.Windows.Forms.CheckBox startadmincheckbox;
         private System.Windows.Forms.Label label1;
@@ -882,19 +1003,26 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox Builderbox;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.GroupBox inspector;
         private System.Windows.Forms.CheckBox obfuscatecheckbox;
         private System.Windows.Forms.CheckBox optimizecheckbox;
         private System.Windows.Forms.TextBox fetchurl;
-        private System.Windows.Forms.GroupBox URLBox;
-        private System.Windows.Forms.GroupBox BatchlocationBox;
         private System.Windows.Forms.TextBox batchlocationtextbox;
         private System.Windows.Forms.Button searchbatchbutton;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox ipconfigcheckbox;
+        private System.Windows.Forms.Button searchhidepathbutton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button inspectorbutton;
+        private System.Windows.Forms.Button exitbutton;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button fetchbutton;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.RichTextBox richtextbox;
+        private System.Windows.Forms.Label fetchstatus;
     }
 }
 

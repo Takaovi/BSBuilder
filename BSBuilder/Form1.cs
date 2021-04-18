@@ -4,11 +4,22 @@ using System.Net;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace BSBuilder
 {
     public partial class Form1 : Form
     {
+        //ABLE TO MOVE FORM
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
+        [DllImportAttribute("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
         string batchfetchURL = Properties.Settings.Default.fetchurl;
         string batchlocation = Properties.Settings.Default.batchlocation;
         string batch = string.Empty;
@@ -54,6 +65,8 @@ namespace BSBuilder
         public Form1()
         {
             InitializeComponent();
+
+            this.Size = new Size(500, 679);
 
             acceptTOScheckbox.Checked = Properties.Settings.Default.acceptTOS;
             startadmincheckbox.Checked = Properties.Settings.Default.startadmin;
@@ -104,7 +117,7 @@ namespace BSBuilder
                 {
                     batch = e.Result;
                     richtextbox.Text = batch;
-                    inspector.Text = inspector.Text + " (Batch file fetched from the URL)";
+                    fetchstatus.Text = "Batch file fetched from the URL";
                 }
                 catch
                 {
@@ -112,7 +125,7 @@ namespace BSBuilder
                     {
                         batch = File.ReadAllText(Path.GetFullPath(batchlocation));
                         richtextbox.Text = batch;
-                        inspector.Text = inspector.Text + " (Batch file loaded from local drive)";
+                        fetchstatus.Text = "Batch file loaded from local drive";
                     }
                     else
                     {
@@ -142,10 +155,34 @@ namespace BSBuilder
 
                     batchlocation = Path.GetFullPath(file.FileName);
                     batchlocationtextbox.Text = batchlocation;
+
+                    if (batch.Length != 0) { fetchstatus.Text = "Batch file loaded from local drive"; }
                 }
                 catch
                 {
                     MessageBox.Show("Failed to load the batch file.", "Fail");
+                }
+            }
+        }
+
+        private void searchhidepathbutton_Click(object sender, EventArgs e)
+        {
+            using (var file = new FolderBrowserDialog())
+            {
+                DialogResult result = file.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(file.SelectedPath))
+                {
+                    if (file.SelectedPath.Contains(" "))
+                    {
+                        MessageBox.Show("Path(s) with spaces on them might break the batch script,\ntask scheduler might not be able to execute your file.\n\nYour path will still be set, but recurring will most likely NOT work.", "Hold on");
+                        hidepathtextbox.Text = file.SelectedPath;
+                    }
+                    else
+                    {
+                        hidepathtextbox.Text = file.SelectedPath;
+                    }
+
                 }
             }
         }
@@ -265,8 +302,6 @@ namespace BSBuilder
                     richtextbox.Text = batch;
 
                     Builderbox.Enabled = false;
-                    URLBox.Enabled = false;
-                    BatchlocationBox.Enabled = false;
                     acceptTOScheckbox.Enabled = false;
                     forcerestart = true;
                     buildbutton.Text = "Restart the program";
@@ -649,6 +684,52 @@ namespace BSBuilder
             Properties.Settings.Default.batchlocation = batchlocation;
 
             Properties.Settings.Default.Save();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void label13_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        bool iii = false;
+        private void inspectorbutton_Click(object sender, EventArgs e)
+        {
+            if (iii)
+            {
+                iii = false;
+                this.Size = new Size(500, 679);
+                inspectorbutton.Text = ">";
+
+            }
+            else
+            {
+                iii = true;
+                this.Size = new Size(1232, 679);
+                inspectorbutton.Text = "<";
+            }
+        }
+
+        private void exitbutton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void fetchbutton_Click(object sender, EventArgs e)
+        {
+            fetchbatch();
         }
     }
 }
