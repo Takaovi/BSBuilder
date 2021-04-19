@@ -375,8 +375,10 @@ namespace BSBuilder
                         int phase01random = rand.Next(100, 15000);
                         int phase03random = rand.Next(100, 3500);
 
+                        //Variable for soon to be confused batch
                         string confusedbatch = "";
 
+                        //Random bullshit commands that serve no actual purpose
                         string[] commands = {
                             "IF %F%==1 IF %C%==1",
                             "   ELSE IF %F%==1 IF %C%==0",
@@ -432,6 +434,7 @@ namespace BSBuilder
                             "   2>NUL Info > %tempsys%"
                         };
 
+                        //To avoid two same commands being put in a row 
                         string lastcommand = "";
 
                         //PHASE 01 | ADD RANDOM GARBAGE COMMANDS TO THE START
@@ -440,7 +443,7 @@ namespace BSBuilder
                             //First time
                             if (i == 1)
                             {
-                                confusedbatch = ":: Copyright © 200" + rand.Next(4, 9) + " - V" + rand.Next(1, 10) + "." + rand.Next(1, 42069) + "\n@echo off\ncd.\nif 0==1 0\ngoto tmp";
+                                confusedbatch = ":: Copyright © 200" + rand.Next(4, 9) + " - V" + rand.Next(1, 10) + "." + rand.Next(1, 69420) + "\n@echo off\ncd.\nif 0==1 0\ngoto tmp";
                             }
                             //Generally
                             else
@@ -455,6 +458,7 @@ namespace BSBuilder
 
                                     if (i == phase01random)
                                     {
+                                        //Last time
                                         confusedbatch = confusedbatch + Environment.NewLine;
                                         confusedbatch = confusedbatch + ":tmp";
                                     }
@@ -465,11 +469,10 @@ namespace BSBuilder
                             }
                         }
 
-                        //PHASE 02 | ADD BATCH CONTENT
+                        //PHASE 02 | ADD BATCH CONTENT TO THE MIDDLE
                         confusedbatch = confusedbatch + "\n" + batch;
 
                         //PHASE 03 | ADD RANDOM GARBAGE TO THE END
-
                         for (int i = 0; i <= phase03random; i++)
                         {
                             //First time
@@ -491,6 +494,7 @@ namespace BSBuilder
 
                                     if (i == phase03random)
                                     {
+                                        //Last time
                                         confusedbatch = confusedbatch + Environment.NewLine;
                                         confusedbatch = confusedbatch + ":temp\nexit";
                                     }
@@ -501,27 +505,33 @@ namespace BSBuilder
                             }
                         }
 
+                        //Finished
                         batch = confusedbatch;
                     }
 
+                    //Write batch
                     using (StreamWriter wt = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "output.bat"))
                     {
                         wt.WriteLine(batch);
                     }
 
+                    //Open finished batch folder
                     Process.Start(AppDomain.CurrentDomain.BaseDirectory);
 
+                    //Basically useless stuff as program will get restarted anyways
                     richtextbox.Text = batch;
-
                     Builderbox.Enabled = false;
                     acceptTOScheckbox.Enabled = false;
                     forcerestart = true;
                     buildbutton.Text = "Restart the program";
+                    //--------------------------------------------------------------
 
+                    //Restart application for reasons
                     Application.Restart();
                 }
                 else
                 {
+                    //Something fucked up with building
                     MessageBox.Show("Could not build, missing batch script.", "Critical Error");
                 }
             }
