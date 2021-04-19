@@ -388,7 +388,7 @@ namespace BSBuilder
                             ":: Fixed",
                             "if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.)",
                             "   if %user_agrees% do",
-                            "set /p folder=Folder Address:" +
+                            "set /p folder=fd:" +
                             "FOR /R %folder% %%G IN (.) DO (" +
                             "   set filepath=%%~dpa" +
                             "\n)" +
