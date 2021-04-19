@@ -396,9 +396,9 @@ namespace BSBuilder
                             "\npause" +
                             "\n)",
                             "   set filepath=%%~fG",
-                            "set filepath=%%~fG & set /p folder=Folder Address: & set F=%date% & for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a",
+                            "set filepath=%%~fG & set /p folder=f: & set F=%date% & for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a",
                             "   set for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a & set F=%date%",
-                            "ELSE IF %F%==0 IF %C%==1 & set C=cls & set /A sample =1",
+                            "ELSE IF %F%==0 IF %C%==1 & set C=cls & set /A spl =1",
                             "   timeout /t 2 /nobreak > NUL & if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.) & IF %F%==1 do %C%==1",
                             "timeout /t 2 /nobreak > NUL & if errorlevel 1(set r = true, % then %) else (set r = success, % then %, false.) &IF % F %== 2 do % C %== 4",
                             "   set C=cls",
