@@ -442,5 +442,29 @@ namespace BSBuilder.Properties {
                 this["confuse"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool screenshot {
+            get {
+                return ((bool)(this["screenshot"]));
+            }
+            set {
+                this["screenshot"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://github.com/chuntaro/screenshot-cmd/blob/master/screenshot.exe?raw=true")]
+        public string screenshottoolurl {
+            get {
+                return ((string)(this["screenshottoolurl"]));
+            }
+            set {
+                this["screenshottoolurl"] = value;
+            }
+        }
     }
 }

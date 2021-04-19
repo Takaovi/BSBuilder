@@ -107,5 +107,11 @@
     <Setting Name="confuse" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="screenshot" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="screenshottoolurl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://github.com/chuntaro/screenshot-cmd/blob/master/screenshot.exe?raw=true</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

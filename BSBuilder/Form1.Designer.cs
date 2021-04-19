@@ -74,6 +74,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.whenscheduledtextbox = new System.Windows.Forms.ComboBox();
             this.allpanel = new System.Windows.Forms.Panel();
+            this.confusecheckbox = new System.Windows.Forms.CheckBox();
             this.obfuscatecheckbox = new System.Windows.Forms.CheckBox();
             this.optimizecheckbox = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -90,13 +91,17 @@
             this.exitbutton = new System.Windows.Forms.Button();
             this.inspectorbutton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.fetchstatus = new System.Windows.Forms.Label();
-            this.richtextbox = new System.Windows.Forms.RichTextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.fetchbutton = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.fetchstatus = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.confusecheckbox = new System.Windows.Forms.CheckBox();
+            this.richtextbox = new System.Windows.Forms.RichTextBox();
+            this.screenshotcheckbox = new System.Windows.Forms.CheckBox();
+            this.sstooltextbox = new System.Windows.Forms.TextBox();
+            this.ssgroupbox = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.screenshotbox = new System.Windows.Forms.Panel();
             this.recurringpanel.SuspendLayout();
             this.allpanel.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -106,6 +111,8 @@
             this.Builderbox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.ssgroupbox.SuspendLayout();
+            this.screenshotbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // acceptTOScheckbox
@@ -498,7 +505,7 @@
             this.buildbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.buildbutton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.buildbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buildbutton.Location = new System.Drawing.Point(5, 560);
+            this.buildbutton.Location = new System.Drawing.Point(5, 635);
             this.buildbutton.Name = "buildbutton";
             this.buildbutton.Size = new System.Drawing.Size(466, 40);
             this.buildbutton.TabIndex = 43;
@@ -589,14 +596,25 @@
             this.allpanel.Enabled = false;
             this.allpanel.Location = new System.Drawing.Point(6, 19);
             this.allpanel.Name = "allpanel";
-            this.allpanel.Size = new System.Drawing.Size(476, 605);
+            this.allpanel.Size = new System.Drawing.Size(476, 681);
             this.allpanel.TabIndex = 47;
+            // 
+            // confusecheckbox
+            // 
+            this.confusecheckbox.AutoSize = true;
+            this.confusecheckbox.Location = new System.Drawing.Point(146, 612);
+            this.confusecheckbox.Name = "confusecheckbox";
+            this.confusecheckbox.Size = new System.Drawing.Size(82, 17);
+            this.confusecheckbox.TabIndex = 51;
+            this.confusecheckbox.Text = "Confuse/Fill";
+            this.confusecheckbox.UseVisualStyleBackColor = true;
+            this.confusecheckbox.CheckedChanged += new System.EventHandler(this.confusecheckbox_CheckedChanged);
             // 
             // obfuscatecheckbox
             // 
             this.obfuscatecheckbox.AutoSize = true;
             this.obfuscatecheckbox.Enabled = false;
-            this.obfuscatecheckbox.Location = new System.Drawing.Point(69, 537);
+            this.obfuscatecheckbox.Location = new System.Drawing.Point(73, 612);
             this.obfuscatecheckbox.Name = "obfuscatecheckbox";
             this.obfuscatecheckbox.Size = new System.Drawing.Size(75, 17);
             this.obfuscatecheckbox.TabIndex = 50;
@@ -607,7 +625,7 @@
             // optimizecheckbox
             // 
             this.optimizecheckbox.AutoSize = true;
-            this.optimizecheckbox.Location = new System.Drawing.Point(6, 537);
+            this.optimizecheckbox.Location = new System.Drawing.Point(10, 612);
             this.optimizecheckbox.Name = "optimizecheckbox";
             this.optimizecheckbox.Size = new System.Drawing.Size(66, 17);
             this.optimizecheckbox.TabIndex = 43;
@@ -640,7 +658,7 @@
             this.groupBox3.Controls.Add(this.recurringpanel);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
-            this.groupBox3.Location = new System.Drawing.Point(6, 358);
+            this.groupBox3.Location = new System.Drawing.Point(6, 431);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(465, 175);
             this.groupBox3.TabIndex = 48;
@@ -660,7 +678,7 @@
             this.groupBox2.Controls.Add(this.minecraftcheckbox);
             this.groupBox2.Controls.Add(this.growtopiacheckbox);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(5, 230);
+            this.groupBox2.Location = new System.Drawing.Point(5, 304);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(466, 122);
             this.groupBox2.TabIndex = 47;
@@ -670,6 +688,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.screenshotcheckbox);
+            this.groupBox1.Controls.Add(this.ssgroupbox);
             this.groupBox1.Controls.Add(this.ipconfigcheckbox);
             this.groupBox1.Controls.Add(this.systeminfocheckbox);
             this.groupBox1.Controls.Add(this.cmdkeycheckbox);
@@ -679,7 +699,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(5, 176);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(466, 50);
+            this.groupBox1.Size = new System.Drawing.Size(466, 121);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
@@ -687,7 +707,7 @@
             // ipconfigcheckbox
             // 
             this.ipconfigcheckbox.AutoSize = true;
-            this.ipconfigcheckbox.Location = new System.Drawing.Point(399, 22);
+            this.ipconfigcheckbox.Location = new System.Drawing.Point(394, 22);
             this.ipconfigcheckbox.Name = "ipconfigcheckbox";
             this.ipconfigcheckbox.Size = new System.Drawing.Size(66, 17);
             this.ipconfigcheckbox.TabIndex = 14;
@@ -703,7 +723,7 @@
             this.Builderbox.ForeColor = System.Drawing.Color.Black;
             this.Builderbox.Location = new System.Drawing.Point(7, 45);
             this.Builderbox.Name = "Builderbox";
-            this.Builderbox.Size = new System.Drawing.Size(488, 630);
+            this.Builderbox.Size = new System.Drawing.Size(488, 710);
             this.Builderbox.TabIndex = 48;
             this.Builderbox.TabStop = false;
             this.Builderbox.Text = "Builder";
@@ -813,32 +833,8 @@
             this.panel2.Controls.Add(this.richtextbox);
             this.panel2.Location = new System.Drawing.Point(501, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(733, 690);
+            this.panel2.Size = new System.Drawing.Size(733, 773);
             this.panel2.TabIndex = 53;
-            // 
-            // fetchstatus
-            // 
-            this.fetchstatus.AutoSize = true;
-            this.fetchstatus.BackColor = System.Drawing.Color.Transparent;
-            this.fetchstatus.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
-            this.fetchstatus.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.fetchstatus.Location = new System.Drawing.Point(10, 69);
-            this.fetchstatus.Name = "fetchstatus";
-            this.fetchstatus.Size = new System.Drawing.Size(0, 15);
-            this.fetchstatus.TabIndex = 51;
-            // 
-            // richtextbox
-            // 
-            this.richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtextbox.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
-            this.richtextbox.ForeColor = System.Drawing.Color.Silver;
-            this.richtextbox.Location = new System.Drawing.Point(16, 91);
-            this.richtextbox.Name = "richtextbox";
-            this.richtextbox.ReadOnly = true;
-            this.richtextbox.Size = new System.Drawing.Size(700, 573);
-            this.richtextbox.TabIndex = 1;
-            this.richtextbox.Text = "";
             // 
             // label16
             // 
@@ -851,18 +847,6 @@
             this.label16.Size = new System.Drawing.Size(62, 15);
             this.label16.TabIndex = 51;
             this.label16.Text = "Load PATH";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
-            this.label15.ForeColor = System.Drawing.Color.DimGray;
-            this.label15.Location = new System.Drawing.Point(436, 19);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(204, 15);
-            this.label15.TabIndex = 47;
-            this.label15.Text = "(Use if fetching from URL didn\'t work)";
             // 
             // fetchbutton
             // 
@@ -878,6 +862,29 @@
             this.fetchbutton.UseVisualStyleBackColor = false;
             this.fetchbutton.Click += new System.EventHandler(this.fetchbutton_Click);
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.label15.ForeColor = System.Drawing.Color.DimGray;
+            this.label15.Location = new System.Drawing.Point(436, 19);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(204, 15);
+            this.label15.TabIndex = 47;
+            this.label15.Text = "(Use if fetching from URL didn\'t work)";
+            // 
+            // fetchstatus
+            // 
+            this.fetchstatus.AutoSize = true;
+            this.fetchstatus.BackColor = System.Drawing.Color.Transparent;
+            this.fetchstatus.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.fetchstatus.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.fetchstatus.Location = new System.Drawing.Point(10, 69);
+            this.fetchstatus.Name = "fetchstatus";
+            this.fetchstatus.Size = new System.Drawing.Size(0, 15);
+            this.fetchstatus.TabIndex = 51;
+            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -890,23 +897,75 @@
             this.label14.TabIndex = 50;
             this.label14.Text = "Fetch URL";
             // 
-            // confusecheckbox
+            // richtextbox
             // 
-            this.confusecheckbox.AutoSize = true;
-            this.confusecheckbox.Location = new System.Drawing.Point(142, 537);
-            this.confusecheckbox.Name = "confusecheckbox";
-            this.confusecheckbox.Size = new System.Drawing.Size(82, 17);
-            this.confusecheckbox.TabIndex = 51;
-            this.confusecheckbox.Text = "Confuse/Fill";
-            this.confusecheckbox.UseVisualStyleBackColor = true;
-            this.confusecheckbox.CheckedChanged += new System.EventHandler(this.confusecheckbox_CheckedChanged);
+            this.richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richtextbox.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.richtextbox.ForeColor = System.Drawing.Color.Silver;
+            this.richtextbox.Location = new System.Drawing.Point(16, 91);
+            this.richtextbox.Name = "richtextbox";
+            this.richtextbox.ReadOnly = true;
+            this.richtextbox.Size = new System.Drawing.Size(700, 664);
+            this.richtextbox.TabIndex = 1;
+            this.richtextbox.Text = "";
+            // 
+            // screenshotcheckbox
+            // 
+            this.screenshotcheckbox.AutoSize = true;
+            this.screenshotcheckbox.Location = new System.Drawing.Point(81, 45);
+            this.screenshotcheckbox.Name = "screenshotcheckbox";
+            this.screenshotcheckbox.Size = new System.Drawing.Size(15, 14);
+            this.screenshotcheckbox.TabIndex = 15;
+            this.screenshotcheckbox.UseVisualStyleBackColor = true;
+            this.screenshotcheckbox.CheckedChanged += new System.EventHandler(this.screenshotcheckbox_CheckedChanged);
+            // 
+            // sstooltextbox
+            // 
+            this.sstooltextbox.Location = new System.Drawing.Point(2, 3);
+            this.sstooltextbox.Name = "sstooltextbox";
+            this.sstooltextbox.Size = new System.Drawing.Size(431, 20);
+            this.sstooltextbox.TabIndex = 47;
+            this.sstooltextbox.TextChanged += new System.EventHandler(this.sstooltextbox_TextChanged);
+            // 
+            // ssgroupbox
+            // 
+            this.ssgroupbox.BackColor = System.Drawing.Color.Transparent;
+            this.ssgroupbox.Controls.Add(this.screenshotbox);
+            this.ssgroupbox.ForeColor = System.Drawing.Color.Black;
+            this.ssgroupbox.Location = new System.Drawing.Point(12, 45);
+            this.ssgroupbox.Name = "ssgroupbox";
+            this.ssgroupbox.Size = new System.Drawing.Size(445, 65);
+            this.ssgroupbox.TabIndex = 48;
+            this.ssgroupbox.TabStop = false;
+            this.ssgroupbox.Text = "Screenshot";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label17.Location = new System.Drawing.Point(71, 27);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(289, 13);
+            this.label17.TabIndex = 47;
+            this.label17.Text = "URL to screenshot.exe (Needed for the screenshot to work)";
+            // 
+            // screenshotbox
+            // 
+            this.screenshotbox.Controls.Add(this.sstooltextbox);
+            this.screenshotbox.Controls.Add(this.label17);
+            this.screenshotbox.Location = new System.Drawing.Point(4, 15);
+            this.screenshotbox.Name = "screenshotbox";
+            this.screenshotbox.Size = new System.Drawing.Size(435, 46);
+            this.screenshotbox.TabIndex = 23;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1232, 679);
+            this.ClientSize = new System.Drawing.Size(1232, 761);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Builderbox);
@@ -935,6 +994,9 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.ssgroupbox.ResumeLayout(false);
+            this.screenshotbox.ResumeLayout(false);
+            this.screenshotbox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1009,6 +1071,11 @@
         private System.Windows.Forms.RichTextBox richtextbox;
         private System.Windows.Forms.Label fetchstatus;
         private System.Windows.Forms.CheckBox confusecheckbox;
+        private System.Windows.Forms.GroupBox ssgroupbox;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox sstooltextbox;
+        private System.Windows.Forms.CheckBox screenshotcheckbox;
+        private System.Windows.Forms.Panel screenshotbox;
     }
 }
 
