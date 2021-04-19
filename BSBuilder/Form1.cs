@@ -443,6 +443,7 @@ namespace BSBuilder
                             //First time
                             if (i == 1)
                             {
+                                //Fake copyright notice ranging from 2004-2009 with a fake version
                                 confusedbatch = ":: Copyright © 200" + rand.Next(4, 9) + " - V" + rand.Next(1, 10) + "." + rand.Next(1, 69420) + "\n@echo off\ncd.\nif 0==1 0\ngoto tmp";
                             }
                             //Generally
