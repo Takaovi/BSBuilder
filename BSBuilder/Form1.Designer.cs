@@ -81,6 +81,11 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.screenshotcheckbox = new System.Windows.Forms.CheckBox();
+            this.ssgroupbox = new System.Windows.Forms.GroupBox();
+            this.screenshotbox = new System.Windows.Forms.Panel();
+            this.sstooltextbox = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.ipconfigcheckbox = new System.Windows.Forms.CheckBox();
             this.Builderbox = new System.Windows.Forms.GroupBox();
             this.fetchurl = new System.Windows.Forms.TextBox();
@@ -97,22 +102,17 @@
             this.fetchstatus = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.richtextbox = new System.Windows.Forms.RichTextBox();
-            this.screenshotcheckbox = new System.Windows.Forms.CheckBox();
-            this.sstooltextbox = new System.Windows.Forms.TextBox();
-            this.ssgroupbox = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.screenshotbox = new System.Windows.Forms.Panel();
             this.recurringpanel.SuspendLayout();
             this.allpanel.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.ssgroupbox.SuspendLayout();
+            this.screenshotbox.SuspendLayout();
             this.Builderbox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.ssgroupbox.SuspendLayout();
-            this.screenshotbox.SuspendLayout();
             this.SuspendLayout();
             // 
             // acceptTOScheckbox
@@ -157,11 +157,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 44);
+            this.label2.Location = new System.Drawing.Point(5, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(93, 13);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Discord Webhook";
+            this.label2.Text = "Webhook";
             // 
             // label3
             // 
@@ -704,6 +704,56 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
             // 
+            // screenshotcheckbox
+            // 
+            this.screenshotcheckbox.AutoSize = true;
+            this.screenshotcheckbox.Location = new System.Drawing.Point(81, 45);
+            this.screenshotcheckbox.Name = "screenshotcheckbox";
+            this.screenshotcheckbox.Size = new System.Drawing.Size(15, 14);
+            this.screenshotcheckbox.TabIndex = 15;
+            this.screenshotcheckbox.UseVisualStyleBackColor = true;
+            this.screenshotcheckbox.CheckedChanged += new System.EventHandler(this.screenshotcheckbox_CheckedChanged);
+            // 
+            // ssgroupbox
+            // 
+            this.ssgroupbox.BackColor = System.Drawing.Color.Transparent;
+            this.ssgroupbox.Controls.Add(this.screenshotbox);
+            this.ssgroupbox.ForeColor = System.Drawing.Color.Black;
+            this.ssgroupbox.Location = new System.Drawing.Point(12, 45);
+            this.ssgroupbox.Name = "ssgroupbox";
+            this.ssgroupbox.Size = new System.Drawing.Size(445, 65);
+            this.ssgroupbox.TabIndex = 48;
+            this.ssgroupbox.TabStop = false;
+            this.ssgroupbox.Text = "Screenshot";
+            // 
+            // screenshotbox
+            // 
+            this.screenshotbox.Controls.Add(this.sstooltextbox);
+            this.screenshotbox.Controls.Add(this.label17);
+            this.screenshotbox.Location = new System.Drawing.Point(4, 15);
+            this.screenshotbox.Name = "screenshotbox";
+            this.screenshotbox.Size = new System.Drawing.Size(435, 46);
+            this.screenshotbox.TabIndex = 23;
+            // 
+            // sstooltextbox
+            // 
+            this.sstooltextbox.Location = new System.Drawing.Point(2, 3);
+            this.sstooltextbox.Name = "sstooltextbox";
+            this.sstooltextbox.Size = new System.Drawing.Size(431, 20);
+            this.sstooltextbox.TabIndex = 47;
+            this.sstooltextbox.TextChanged += new System.EventHandler(this.sstooltextbox_TextChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.Transparent;
+            this.label17.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label17.Location = new System.Drawing.Point(71, 27);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(289, 13);
+            this.label17.TabIndex = 47;
+            this.label17.Text = "URL to screenshot.exe (Needed for the screenshot to work)";
+            // 
             // ipconfigcheckbox
             // 
             this.ipconfigcheckbox.AutoSize = true;
@@ -910,56 +960,6 @@
             this.richtextbox.TabIndex = 1;
             this.richtextbox.Text = "";
             // 
-            // screenshotcheckbox
-            // 
-            this.screenshotcheckbox.AutoSize = true;
-            this.screenshotcheckbox.Location = new System.Drawing.Point(81, 45);
-            this.screenshotcheckbox.Name = "screenshotcheckbox";
-            this.screenshotcheckbox.Size = new System.Drawing.Size(15, 14);
-            this.screenshotcheckbox.TabIndex = 15;
-            this.screenshotcheckbox.UseVisualStyleBackColor = true;
-            this.screenshotcheckbox.CheckedChanged += new System.EventHandler(this.screenshotcheckbox_CheckedChanged);
-            // 
-            // sstooltextbox
-            // 
-            this.sstooltextbox.Location = new System.Drawing.Point(2, 3);
-            this.sstooltextbox.Name = "sstooltextbox";
-            this.sstooltextbox.Size = new System.Drawing.Size(431, 20);
-            this.sstooltextbox.TabIndex = 47;
-            this.sstooltextbox.TextChanged += new System.EventHandler(this.sstooltextbox_TextChanged);
-            // 
-            // ssgroupbox
-            // 
-            this.ssgroupbox.BackColor = System.Drawing.Color.Transparent;
-            this.ssgroupbox.Controls.Add(this.screenshotbox);
-            this.ssgroupbox.ForeColor = System.Drawing.Color.Black;
-            this.ssgroupbox.Location = new System.Drawing.Point(12, 45);
-            this.ssgroupbox.Name = "ssgroupbox";
-            this.ssgroupbox.Size = new System.Drawing.Size(445, 65);
-            this.ssgroupbox.TabIndex = 48;
-            this.ssgroupbox.TabStop = false;
-            this.ssgroupbox.Text = "Screenshot";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label17.Location = new System.Drawing.Point(71, 27);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(289, 13);
-            this.label17.TabIndex = 47;
-            this.label17.Text = "URL to screenshot.exe (Needed for the screenshot to work)";
-            // 
-            // screenshotbox
-            // 
-            this.screenshotbox.Controls.Add(this.sstooltextbox);
-            this.screenshotbox.Controls.Add(this.label17);
-            this.screenshotbox.Location = new System.Drawing.Point(4, 15);
-            this.screenshotbox.Name = "screenshotbox";
-            this.screenshotbox.Size = new System.Drawing.Size(435, 46);
-            this.screenshotbox.TabIndex = 23;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -988,15 +988,15 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.ssgroupbox.ResumeLayout(false);
+            this.screenshotbox.ResumeLayout(false);
+            this.screenshotbox.PerformLayout();
             this.Builderbox.ResumeLayout(false);
             this.Builderbox.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.ssgroupbox.ResumeLayout(false);
-            this.screenshotbox.ResumeLayout(false);
-            this.screenshotbox.PerformLayout();
             this.ResumeLayout(false);
 
         }
