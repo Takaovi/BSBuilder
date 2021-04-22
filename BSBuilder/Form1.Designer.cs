@@ -94,10 +94,12 @@
             this.searchbatchbutton = new System.Windows.Forms.Button();
             this.batchlocationtextbox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.minimizebutton = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.exitbutton = new System.Windows.Forms.Button();
             this.inspectorbutton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.fetchbutton = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
@@ -107,8 +109,7 @@
             this.openfolder = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.minimizebutton = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.recurringpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleFrequency)).BeginInit();
             this.allpanel.SuspendLayout();
@@ -806,7 +807,7 @@
             this.Builderbox.Controls.Add(this.acceptTOScheckbox);
             this.Builderbox.Controls.Add(this.allpanel);
             this.Builderbox.ForeColor = System.Drawing.Color.Black;
-            this.Builderbox.Location = new System.Drawing.Point(6, 45);
+            this.Builderbox.Location = new System.Drawing.Point(6, 49);
             this.Builderbox.Name = "Builderbox";
             this.Builderbox.Size = new System.Drawing.Size(488, 710);
             this.Builderbox.TabIndex = 48;
@@ -863,6 +864,20 @@
             this.panel1.Size = new System.Drawing.Size(502, 39);
             this.panel1.TabIndex = 52;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            // 
+            // minimizebutton
+            // 
+            this.minimizebutton.FlatAppearance.BorderSize = 0;
+            this.minimizebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimizebutton.ForeColor = System.Drawing.Color.White;
+            this.minimizebutton.Location = new System.Drawing.Point(382, 0);
+            this.minimizebutton.Name = "minimizebutton";
+            this.minimizebutton.Size = new System.Drawing.Size(39, 39);
+            this.minimizebutton.TabIndex = 49;
+            this.minimizebutton.Text = "_";
+            this.minimizebutton.UseVisualStyleBackColor = true;
+            this.minimizebutton.Click += new System.EventHandler(this.minimizebutton_Click);
             // 
             // label13
             // 
@@ -922,6 +937,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(733, 773);
             this.panel2.TabIndex = 53;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel5.Location = new System.Drawing.Point(16, 59);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(700, 3);
+            this.panel5.TabIndex = 55;
             // 
             // label16
             // 
@@ -1025,32 +1048,18 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
-            this.panel4.Location = new System.Drawing.Point(-1, -3);
+            this.panel4.Location = new System.Drawing.Point(-1, -2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(502, 5);
             this.panel4.TabIndex = 54;
             // 
-            // minimizebutton
+            // panel6
             // 
-            this.minimizebutton.FlatAppearance.BorderSize = 0;
-            this.minimizebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.minimizebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizebutton.ForeColor = System.Drawing.Color.White;
-            this.minimizebutton.Location = new System.Drawing.Point(382, 0);
-            this.minimizebutton.Name = "minimizebutton";
-            this.minimizebutton.Size = new System.Drawing.Size(39, 39);
-            this.minimizebutton.TabIndex = 49;
-            this.minimizebutton.Text = "_";
-            this.minimizebutton.UseVisualStyleBackColor = true;
-            this.minimizebutton.Click += new System.EventHandler(this.minimizebutton_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel5.Location = new System.Drawing.Point(16, 59);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(700, 3);
-            this.panel5.TabIndex = 55;
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.panel6.Location = new System.Drawing.Point(-1, 37);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(502, 5);
+            this.panel6.TabIndex = 55;
             // 
             // Form1
             // 
@@ -1062,6 +1071,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Builderbox);
+            this.Controls.Add(this.panel6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "Form1";
@@ -1178,6 +1188,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button minimizebutton;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
     }
 }
 
