@@ -2,10 +2,9 @@
 
 ### 📜 Batch Stealer builder/editor
 
-![Made with love in Finland](https://madewithlove.now.sh/fi?heart=true&colorB=%23387fdc&template=plastic)
-
   <p align="center">
   <img src="https://i.imgur.com/salTNxU.png">
+  <img src="https://madewithlove.now.sh/fi?heart=true&colorB=%23387fdc&template=plastic">
   </p>
 
 # How to use
