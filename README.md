@@ -11,7 +11,7 @@
 
 ## Note
 
-* Task Scheduler is very unstable, the script doesn't usually start on "minute", "hourly", "daily", "monthly" or "onidle". It's recommended to use "onlogon".
+* Task Scheduler is very unstable, the script doesn't usually start on "onidle". It's recommended to use "onlogon" or "minute" with modified time. (Such as every 30 minutes).
 
 # Screenshots
 
