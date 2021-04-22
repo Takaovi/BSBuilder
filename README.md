@@ -2,8 +2,11 @@
 
 ### 📜 Batch Stealer builder/editor
 
-
 ![Made with love in Finland](https://madewithlove.now.sh/fi?heart=true&colorB=%23387fdc&template=plastic)
+
+  <p align="center">
+  <img src="https://i.imgur.com/salTNxU.png">
+  </p>
 
 # How to use
 
@@ -12,10 +15,6 @@
 ## Note
 
 * Task Scheduler is very unstable, the script doesn't usually start on "onidle". It's recommended to use "onlogon" or "minute" with modified time. (Such as every 30 minutes).
-
-  <p align="center">
-  <img src="https://i.imgur.com/salTNxU.png">
-  </p>
 
 # Todo
 * Make obfuscation function
