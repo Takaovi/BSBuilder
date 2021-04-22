@@ -466,5 +466,17 @@ namespace BSBuilder.Properties {
                 this["screenshottoolurl"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal scheduleFrequency {
+            get {
+                return ((decimal)(this["scheduleFrequency"]));
+            }
+            set {
+                this["scheduleFrequency"] = value;
+            }
+        }
     }
 }

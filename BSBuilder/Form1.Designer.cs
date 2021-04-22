@@ -70,6 +70,8 @@
             this.reportendmsgtextbox = new System.Windows.Forms.TextBox();
             this.buildbutton = new System.Windows.Forms.Button();
             this.recurringpanel = new System.Windows.Forms.Panel();
+            this.scheduleFrequency = new System.Windows.Forms.NumericUpDown();
+            this.freqlabel = new System.Windows.Forms.Label();
             this.searchhidepathbutton = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.whenscheduledtextbox = new System.Windows.Forms.ComboBox();
@@ -103,6 +105,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.richtextbox = new System.Windows.Forms.RichTextBox();
             this.recurringpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleFrequency)).BeginInit();
             this.allpanel.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -357,14 +360,14 @@
             // 
             this.updateurltextbox.Location = new System.Drawing.Point(6, 101);
             this.updateurltextbox.Name = "updateurltextbox";
-            this.updateurltextbox.Size = new System.Drawing.Size(287, 20);
+            this.updateurltextbox.Size = new System.Drawing.Size(296, 20);
             this.updateurltextbox.TabIndex = 24;
             this.updateurltextbox.TextChanged += new System.EventHandler(this.updateurltextbox_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(297, 86);
+            this.label5.Location = new System.Drawing.Point(305, 86);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(87, 13);
             this.label5.TabIndex = 27;
@@ -372,9 +375,9 @@
             // 
             // targetusernametextbox
             // 
-            this.targetusernametextbox.Location = new System.Drawing.Point(299, 101);
+            this.targetusernametextbox.Location = new System.Drawing.Point(308, 101);
             this.targetusernametextbox.Name = "targetusernametextbox";
-            this.targetusernametextbox.Size = new System.Drawing.Size(142, 20);
+            this.targetusernametextbox.Size = new System.Drawing.Size(133, 20);
             this.targetusernametextbox.TabIndex = 26;
             this.targetusernametextbox.TextChanged += new System.EventHandler(this.targetusernametextbox_TextChanged);
             // 
@@ -390,7 +393,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(298, 6);
+            this.label7.Location = new System.Drawing.Point(306, 46);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 31;
@@ -398,9 +401,9 @@
             // 
             // schedulenametextbox
             // 
-            this.schedulenametextbox.Location = new System.Drawing.Point(299, 20);
+            this.schedulenametextbox.Location = new System.Drawing.Point(308, 60);
             this.schedulenametextbox.Name = "schedulenametextbox";
-            this.schedulenametextbox.Size = new System.Drawing.Size(142, 20);
+            this.schedulenametextbox.Size = new System.Drawing.Size(133, 20);
             this.schedulenametextbox.TabIndex = 30;
             this.schedulenametextbox.TextChanged += new System.EventHandler(this.schedulenametextbox_TextChanged);
             // 
@@ -409,49 +412,49 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(4, 45);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(103, 13);
+            this.label8.Size = new System.Drawing.Size(64, 13);
             this.label8.TabIndex = 33;
-            this.label8.Text = "Batch copy filename";
+            this.label8.Text = "Batch name";
             // 
             // batchcopynametextbox
             // 
             this.batchcopynametextbox.Location = new System.Drawing.Point(6, 60);
             this.batchcopynametextbox.Name = "batchcopynametextbox";
-            this.batchcopynametextbox.Size = new System.Drawing.Size(147, 20);
+            this.batchcopynametextbox.Size = new System.Drawing.Size(96, 20);
             this.batchcopynametextbox.TabIndex = 32;
             this.batchcopynametextbox.TextChanged += new System.EventHandler(this.batchcopynametextbox_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(157, 45);
+            this.label9.Location = new System.Drawing.Point(105, 45);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(116, 13);
+            this.label9.Size = new System.Drawing.Size(91, 13);
             this.label9.TabIndex = 35;
-            this.label9.Text = "Batch updater filename";
+            this.label9.Text = "Bat updater name";
             // 
             // batchupdaternametextbox
             // 
-            this.batchupdaternametextbox.Location = new System.Drawing.Point(159, 60);
+            this.batchupdaternametextbox.Location = new System.Drawing.Point(107, 60);
             this.batchupdaternametextbox.Name = "batchupdaternametextbox";
-            this.batchupdaternametextbox.Size = new System.Drawing.Size(134, 20);
+            this.batchupdaternametextbox.Size = new System.Drawing.Size(96, 20);
             this.batchupdaternametextbox.TabIndex = 34;
             this.batchupdaternametextbox.TextChanged += new System.EventHandler(this.batchupdaternametextbox_TextChanged);
             // 
             // vbsnametextbox
             // 
             this.vbsnametextbox.AutoSize = true;
-            this.vbsnametextbox.Location = new System.Drawing.Point(299, 45);
+            this.vbsnametextbox.Location = new System.Drawing.Point(208, 45);
             this.vbsnametextbox.Name = "vbsnametextbox";
-            this.vbsnametextbox.Size = new System.Drawing.Size(87, 13);
+            this.vbsnametextbox.Size = new System.Drawing.Size(57, 13);
             this.vbsnametextbox.TabIndex = 37;
-            this.vbsnametextbox.Text = "VBS Script name";
+            this.vbsnametextbox.Text = "VBS name";
             // 
             // vbnametextbox
             // 
-            this.vbnametextbox.Location = new System.Drawing.Point(299, 60);
+            this.vbnametextbox.Location = new System.Drawing.Point(208, 60);
             this.vbnametextbox.Name = "vbnametextbox";
-            this.vbnametextbox.Size = new System.Drawing.Size(142, 20);
+            this.vbnametextbox.Size = new System.Drawing.Size(95, 20);
             this.vbnametextbox.TabIndex = 36;
             this.vbnametextbox.TextChanged += new System.EventHandler(this.vbnametextbox_TextChanged);
             // 
@@ -516,6 +519,8 @@
             // recurringpanel
             // 
             this.recurringpanel.BackColor = System.Drawing.Color.Transparent;
+            this.recurringpanel.Controls.Add(this.scheduleFrequency);
+            this.recurringpanel.Controls.Add(this.freqlabel);
             this.recurringpanel.Controls.Add(this.hidepathtextbox);
             this.recurringpanel.Controls.Add(this.searchhidepathbutton);
             this.recurringpanel.Controls.Add(this.label12);
@@ -523,14 +528,14 @@
             this.recurringpanel.Controls.Add(this.label3);
             this.recurringpanel.Controls.Add(this.updateurltextbox);
             this.recurringpanel.Controls.Add(this.label4);
+            this.recurringpanel.Controls.Add(this.schedulenametextbox);
+            this.recurringpanel.Controls.Add(this.label7);
             this.recurringpanel.Controls.Add(this.targetusernametextbox);
             this.recurringpanel.Controls.Add(this.label5);
             this.recurringpanel.Controls.Add(this.vbsnametextbox);
             this.recurringpanel.Controls.Add(this.label6);
             this.recurringpanel.Controls.Add(this.vbnametextbox);
-            this.recurringpanel.Controls.Add(this.schedulenametextbox);
             this.recurringpanel.Controls.Add(this.label9);
-            this.recurringpanel.Controls.Add(this.label7);
             this.recurringpanel.Controls.Add(this.batchupdaternametextbox);
             this.recurringpanel.Controls.Add(this.batchcopynametextbox);
             this.recurringpanel.Controls.Add(this.label8);
@@ -539,6 +544,28 @@
             this.recurringpanel.Name = "recurringpanel";
             this.recurringpanel.Size = new System.Drawing.Size(447, 147);
             this.recurringpanel.TabIndex = 44;
+            // 
+            // scheduleFrequency
+            // 
+            this.scheduleFrequency.Location = new System.Drawing.Point(309, 21);
+            this.scheduleFrequency.Maximum = new decimal(new int[] {
+            1439,
+            0,
+            0,
+            0});
+            this.scheduleFrequency.Name = "scheduleFrequency";
+            this.scheduleFrequency.Size = new System.Drawing.Size(132, 20);
+            this.scheduleFrequency.TabIndex = 45;
+            this.scheduleFrequency.ValueChanged += new System.EventHandler(this.scheduleFrequency_ValueChanged);
+            // 
+            // freqlabel
+            // 
+            this.freqlabel.AutoSize = true;
+            this.freqlabel.Location = new System.Drawing.Point(308, 6);
+            this.freqlabel.Name = "freqlabel";
+            this.freqlabel.Size = new System.Drawing.Size(126, 13);
+            this.freqlabel.TabIndex = 47;
+            this.freqlabel.Text = "Frequency (0 = Don\'t set)";
             // 
             // searchhidepathbutton
             // 
@@ -566,6 +593,7 @@
             // 
             // whenscheduledtextbox
             // 
+            this.whenscheduledtextbox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.whenscheduledtextbox.FormattingEnabled = true;
             this.whenscheduledtextbox.Items.AddRange(new object[] {
             "Minute",
@@ -574,10 +602,11 @@
             "Weekly",
             "Monthly",
             "Once",
-            "Onlogon"});
+            "Onlogon",
+            "Onidle"});
             this.whenscheduledtextbox.Location = new System.Drawing.Point(206, 20);
             this.whenscheduledtextbox.Name = "whenscheduledtextbox";
-            this.whenscheduledtextbox.Size = new System.Drawing.Size(87, 21);
+            this.whenscheduledtextbox.Size = new System.Drawing.Size(97, 21);
             this.whenscheduledtextbox.TabIndex = 45;
             this.whenscheduledtextbox.SelectedIndexChanged += new System.EventHandler(this.whenscheduledtextbox_SelectedIndexChanged);
             // 
@@ -978,6 +1007,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.recurringpanel.ResumeLayout(false);
             this.recurringpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.scheduleFrequency)).EndInit();
             this.allpanel.ResumeLayout(false);
             this.allpanel.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1076,6 +1106,8 @@
         private System.Windows.Forms.TextBox sstooltextbox;
         private System.Windows.Forms.CheckBox screenshotcheckbox;
         private System.Windows.Forms.Panel screenshotbox;
+        private System.Windows.Forms.Label freqlabel;
+        private System.Windows.Forms.NumericUpDown scheduleFrequency;
     }
 }
 

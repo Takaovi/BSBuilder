@@ -113,5 +113,8 @@
     <Setting Name="screenshottoolurl" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://github.com/chuntaro/screenshot-cmd/blob/master/screenshot.exe?raw=true</Value>
     </Setting>
+    <Setting Name="scheduleFrequency" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
