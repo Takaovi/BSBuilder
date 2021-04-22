@@ -13,16 +13,8 @@
 
 * Task Scheduler is very unstable, the script doesn't usually start on "onidle". It's recommended to use "onlogon" or "minute" with modified time. (Such as every 30 minutes).
 
-# Screenshots
-
-## BSBuilder
   <p align="center">
   <img src="https://i.imgur.com/salTNxU.png">
-  </p>
-  
-## BatchStealer
-  <p align="center">
-  <img src="https://i.imgur.com/ywY9o7N.jpg">
   </p>
 
 # Todo
