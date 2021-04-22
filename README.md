@@ -9,6 +9,10 @@
 
 * Install [Visual Studio](https://visualstudio.microsoft.com/vs/community/) (I used 2019 version) and build the program
 
+## Note
+
+* Task Scheduler is very unstable, the script doesn't usually start on "onidle". It's recommended to use "onlogon" or "minute" with modified time. (Such as every 30 minutes).
+
 # Screenshots
 
 ## BSBuilder
