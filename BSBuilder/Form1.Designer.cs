@@ -104,6 +104,11 @@
             this.fetchstatus = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.richtextbox = new System.Windows.Forms.RichTextBox();
+            this.openfolder = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.minimizebutton = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.recurringpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleFrequency)).BeginInit();
             this.allpanel.SuspendLayout();
@@ -116,6 +121,7 @@
             this.Builderbox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // acceptTOScheckbox
@@ -219,7 +225,7 @@
             // qusercheckbox
             // 
             this.qusercheckbox.AutoSize = true;
-            this.qusercheckbox.Location = new System.Drawing.Point(254, 22);
+            this.qusercheckbox.Location = new System.Drawing.Point(252, 22);
             this.qusercheckbox.Name = "qusercheckbox";
             this.qusercheckbox.Size = new System.Drawing.Size(79, 17);
             this.qusercheckbox.TabIndex = 12;
@@ -230,7 +236,7 @@
             // cmdkeycheckbox
             // 
             this.cmdkeycheckbox.AutoSize = true;
-            this.cmdkeycheckbox.Location = new System.Drawing.Point(334, 22);
+            this.cmdkeycheckbox.Location = new System.Drawing.Point(330, 22);
             this.cmdkeycheckbox.Name = "cmdkeycheckbox";
             this.cmdkeycheckbox.Size = new System.Drawing.Size(65, 17);
             this.cmdkeycheckbox.TabIndex = 13;
@@ -505,12 +511,13 @@
             // 
             // buildbutton
             // 
-            this.buildbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.buildbutton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.buildbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.buildbutton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buildbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buildbutton.Location = new System.Drawing.Point(5, 635);
+            this.buildbutton.ForeColor = System.Drawing.Color.White;
+            this.buildbutton.Location = new System.Drawing.Point(131, 10);
             this.buildbutton.Name = "buildbutton";
-            this.buildbutton.Size = new System.Drawing.Size(466, 40);
+            this.buildbutton.Size = new System.Drawing.Size(350, 40);
             this.buildbutton.TabIndex = 43;
             this.buildbutton.Text = "Build";
             this.buildbutton.UseVisualStyleBackColor = false;
@@ -604,9 +611,9 @@
             "Once",
             "Onlogon",
             "Onidle"});
-            this.whenscheduledtextbox.Location = new System.Drawing.Point(206, 20);
+            this.whenscheduledtextbox.Location = new System.Drawing.Point(208, 20);
             this.whenscheduledtextbox.Name = "whenscheduledtextbox";
-            this.whenscheduledtextbox.Size = new System.Drawing.Size(97, 21);
+            this.whenscheduledtextbox.Size = new System.Drawing.Size(95, 21);
             this.whenscheduledtextbox.TabIndex = 45;
             this.whenscheduledtextbox.SelectedIndexChanged += new System.EventHandler(this.whenscheduledtextbox_SelectedIndexChanged);
             // 
@@ -621,9 +628,8 @@
             this.allpanel.Controls.Add(this.groupBox2);
             this.allpanel.Controls.Add(this.groupBox1);
             this.allpanel.Controls.Add(this.label1);
-            this.allpanel.Controls.Add(this.buildbutton);
             this.allpanel.Enabled = false;
-            this.allpanel.Location = new System.Drawing.Point(6, 19);
+            this.allpanel.Location = new System.Drawing.Point(4, 19);
             this.allpanel.Name = "allpanel";
             this.allpanel.Size = new System.Drawing.Size(476, 681);
             this.allpanel.TabIndex = 47;
@@ -786,7 +792,7 @@
             // ipconfigcheckbox
             // 
             this.ipconfigcheckbox.AutoSize = true;
-            this.ipconfigcheckbox.Location = new System.Drawing.Point(394, 22);
+            this.ipconfigcheckbox.Location = new System.Drawing.Point(395, 22);
             this.ipconfigcheckbox.Name = "ipconfigcheckbox";
             this.ipconfigcheckbox.Size = new System.Drawing.Size(66, 17);
             this.ipconfigcheckbox.TabIndex = 14;
@@ -800,7 +806,7 @@
             this.Builderbox.Controls.Add(this.acceptTOScheckbox);
             this.Builderbox.Controls.Add(this.allpanel);
             this.Builderbox.ForeColor = System.Drawing.Color.Black;
-            this.Builderbox.Location = new System.Drawing.Point(7, 45);
+            this.Builderbox.Location = new System.Drawing.Point(6, 45);
             this.Builderbox.Name = "Builderbox";
             this.Builderbox.Size = new System.Drawing.Size(488, 710);
             this.Builderbox.TabIndex = 48;
@@ -813,7 +819,7 @@
             this.fetchurl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.fetchurl.Font = new System.Drawing.Font("Noto Sans", 9F);
             this.fetchurl.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.fetchurl.Location = new System.Drawing.Point(16, 36);
+            this.fetchurl.Location = new System.Drawing.Point(16, 26);
             this.fetchurl.Name = "fetchurl";
             this.fetchurl.Size = new System.Drawing.Size(292, 24);
             this.fetchurl.TabIndex = 43;
@@ -825,7 +831,7 @@
             this.searchbatchbutton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.searchbatchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchbatchbutton.ForeColor = System.Drawing.Color.White;
-            this.searchbatchbutton.Location = new System.Drawing.Point(666, 36);
+            this.searchbatchbutton.Location = new System.Drawing.Point(666, 26);
             this.searchbatchbutton.Name = "searchbatchbutton";
             this.searchbatchbutton.Size = new System.Drawing.Size(50, 24);
             this.searchbatchbutton.TabIndex = 44;
@@ -839,7 +845,7 @@
             this.batchlocationtextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.batchlocationtextbox.Font = new System.Drawing.Font("Noto Sans", 9F);
             this.batchlocationtextbox.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.batchlocationtextbox.Location = new System.Drawing.Point(376, 36);
+            this.batchlocationtextbox.Location = new System.Drawing.Point(376, 26);
             this.batchlocationtextbox.Name = "batchlocationtextbox";
             this.batchlocationtextbox.ReadOnly = true;
             this.batchlocationtextbox.Size = new System.Drawing.Size(293, 24);
@@ -848,6 +854,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel1.Controls.Add(this.minimizebutton);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.exitbutton);
             this.panel1.Controls.Add(this.inspectorbutton);
@@ -863,7 +870,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Noto Sans Cond", 15.75F);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(4, 6);
+            this.label13.Location = new System.Drawing.Point(4, 5);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(93, 28);
             this.label13.TabIndex = 48;
@@ -901,6 +908,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.fetchbutton);
             this.panel2.Controls.Add(this.label15);
@@ -921,7 +929,7 @@
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
             this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(375, 19);
+            this.label16.Location = new System.Drawing.Point(375, 9);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(62, 15);
             this.label16.TabIndex = 51;
@@ -933,7 +941,7 @@
             this.fetchbutton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
             this.fetchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fetchbutton.ForeColor = System.Drawing.Color.White;
-            this.fetchbutton.Location = new System.Drawing.Point(305, 36);
+            this.fetchbutton.Location = new System.Drawing.Point(305, 26);
             this.fetchbutton.Name = "fetchbutton";
             this.fetchbutton.Size = new System.Drawing.Size(50, 24);
             this.fetchbutton.TabIndex = 48;
@@ -947,7 +955,7 @@
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
             this.label15.ForeColor = System.Drawing.Color.DimGray;
-            this.label15.Location = new System.Drawing.Point(436, 19);
+            this.label15.Location = new System.Drawing.Point(436, 9);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(204, 15);
             this.label15.TabIndex = 47;
@@ -970,7 +978,7 @@
             this.label14.BackColor = System.Drawing.Color.Transparent;
             this.label14.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(14, 18);
+            this.label14.Location = new System.Drawing.Point(14, 8);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(59, 15);
             this.label14.TabIndex = 50;
@@ -989,12 +997,68 @@
             this.richtextbox.TabIndex = 1;
             this.richtextbox.Text = "";
             // 
+            // openfolder
+            // 
+            this.openfolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.openfolder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.openfolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openfolder.ForeColor = System.Drawing.Color.White;
+            this.openfolder.Location = new System.Drawing.Point(19, 10);
+            this.openfolder.Name = "openfolder";
+            this.openfolder.Size = new System.Drawing.Size(95, 40);
+            this.openfolder.TabIndex = 52;
+            this.openfolder.Text = "Open folder";
+            this.openfolder.UseVisualStyleBackColor = false;
+            this.openfolder.Click += new System.EventHandler(this.openfolder_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.buildbutton);
+            this.panel3.Controls.Add(this.openfolder);
+            this.panel3.Location = new System.Drawing.Point(0, 702);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(502, 71);
+            this.panel3.TabIndex = 53;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.panel4.Location = new System.Drawing.Point(-1, -3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(502, 5);
+            this.panel4.TabIndex = 54;
+            // 
+            // minimizebutton
+            // 
+            this.minimizebutton.FlatAppearance.BorderSize = 0;
+            this.minimizebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimizebutton.ForeColor = System.Drawing.Color.White;
+            this.minimizebutton.Location = new System.Drawing.Point(382, 0);
+            this.minimizebutton.Name = "minimizebutton";
+            this.minimizebutton.Size = new System.Drawing.Size(39, 39);
+            this.minimizebutton.TabIndex = 49;
+            this.minimizebutton.Text = "_";
+            this.minimizebutton.UseVisualStyleBackColor = true;
+            this.minimizebutton.Click += new System.EventHandler(this.minimizebutton_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel5.Location = new System.Drawing.Point(16, 59);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(700, 3);
+            this.panel5.TabIndex = 55;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1232, 761);
+            this.ClientSize = new System.Drawing.Size(1232, 763);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Builderbox);
@@ -1027,6 +1091,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1108,6 +1173,11 @@
         private System.Windows.Forms.Panel screenshotbox;
         private System.Windows.Forms.Label freqlabel;
         private System.Windows.Forms.NumericUpDown scheduleFrequency;
+        private System.Windows.Forms.Button openfolder;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button minimizebutton;
+        private System.Windows.Forms.Panel panel5;
     }
 }
 

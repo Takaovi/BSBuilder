@@ -6,7 +6,9 @@ using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Drawing;
+//using System.Linq;
 
+//github.com/Takaovi/BSBuilder - 2021
 namespace BSBuilder
 {
     public partial class Form1 : Form
@@ -234,6 +236,158 @@ namespace BSBuilder
             //Todo
         }
 
+        void confusebatch()
+        {
+            // Unfinished stuff // Trashbin
+
+            //Push the batch script
+            /*
+            string pushside = String.Concat(Enumerable.Repeat("\t", 99999));
+            batch = Regex.Replace(batch, @"^", pushside, RegexOptions.Multiline);
+            */
+
+            //One liner - Doesn't work
+            //batch = Regex.Replace(batch, @"[\r\n]+", " & ", RegexOptions.Multiline);
+
+            Random rand = new Random();
+
+            //Amount of lines
+            int phase01random = rand.Next(100, 5000);
+            int phase03random = rand.Next(100, 3500);
+
+            //Variable for soon to be confused batch
+            string confusedbatch = "";
+
+            //Random bullshit commands that serve no actual purpose
+            string[] commands = {
+                            "IF %F%==1 IF %C%==1",
+                            "   ELSE IF %F%==1 IF %C%==0",
+                            "ELSE IF %F%==0 IF %C%==1",
+                            " ELSE IF %F%==0 IF %C%==1",
+                            "goto endoftests",
+                            "   goto workdone",
+                            "set F=%date%",
+                            ":: Fixed",
+                            "if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.)",
+                            "   if %user_agrees% do",
+                            "set /p folder=fd:" +
+                            "FOR /R %folder% %%G IN (.) DO (" +
+                            "   set filepath=%%~dpa" +
+                            "\n)" +
+                            "%time% & dir & echo %time%",
+                            "\npause" +
+                            "\n)",
+                            "   set filepath=%%~fG",
+                            "set filepath=%%~fG & set /p folder=f: & set F=%date% & for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a",
+                            "   set for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a & set F=%date%",
+                            "ELSE IF %F%==0 IF %C%==1 & set C=cls & set /A spl =1",
+                            "   timeout /t 2 /nobreak > NUL & if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.) & IF %F%==1 do %C%==1",
+                            "timeout /t 2 /nobreak > NUL & if errorlevel 1(set r = true, % then %) else (set r = success, % then %, false.) &IF % F %== 2 do % C %== 4",
+                            "   set C=cls",
+                            "   set /A sample =1",
+                            "   fc /l %comp1% %comp2%",
+                            "for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a",
+                            "   timeout /t 2 /nobreak > NUL",
+                            "   if errorlevel 1 (@echo off) else",
+                            "whoami",
+                            "   if %ERRORLEVEL% EQU 1 goto w",
+                            "move \"%sourceFile%\" \"%destinationFile%\"",
+                            "   move \"%sourceFile%\" \"%destinationFile%\"",
+                            "cls",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "if 0==1 0",
+                            "   if 0==1 0",
+                            "cd.",
+                            "call",
+                            "   call",
+                            "setlocal",
+                            "2>NUL Info > %tempsys%",
+                            "   2>NUL Info > %tempsys%"
+                        };
+
+            //To avoid two same commands being put in a row 
+            string lastcommand = "";
+
+            //PHASE 01 | ADD RANDOM GARBAGE COMMANDS TO THE START
+            for (int i = 0; i <= phase01random; i++)
+            {
+                //First time
+                if (i == 1)
+                {
+                    //Fake copyright notice ranging from 2004-2009 with a fake version
+                    confusedbatch = ":: Copyright © 200" + rand.Next(4, 9) + " - V" + rand.Next(1, 10) + "." + rand.Next(1, 69420) + "\n@echo off\ncd.\nif 0==1 0\ngoto tmp";
+                }
+                //Generally
+                else
+                {
+                    start:
+                    int a = rand.Next(0, commands.Length);
+
+                    if (commands[a] != lastcommand)
+                    {
+                        confusedbatch = confusedbatch + Environment.NewLine;
+                        confusedbatch = confusedbatch + commands[a];
+
+                        if (i == phase01random)
+                        {
+                            //Last time
+                            confusedbatch = confusedbatch + Environment.NewLine;
+                            confusedbatch = confusedbatch + ":tmp";
+                        }
+                    }
+                    else goto start;
+
+                    lastcommand = commands[a];
+                }
+            }
+
+            //PHASE 02 | ADD BATCH CONTENT TO THE MIDDLE
+            confusedbatch = confusedbatch + "\n" + batch;
+
+            //PHASE 03 | ADD RANDOM GARBAGE TO THE END
+            for (int i = 0; i <= phase03random; i++)
+            {
+                //First time
+                if (i == 1)
+                {
+                    confusedbatch = confusedbatch + Environment.NewLine;
+                    confusedbatch = confusedbatch + "goto temp";
+                }
+                //Generally
+                else
+                {
+                    start:
+                    int a = rand.Next(0, commands.Length);
+
+                    if (commands[a] != lastcommand)
+                    {
+                        confusedbatch = confusedbatch + Environment.NewLine;
+                        confusedbatch = confusedbatch + commands[a];
+
+                        if (i == phase03random)
+                        {
+                            //Last time
+                            confusedbatch = confusedbatch + Environment.NewLine;
+                            confusedbatch = confusedbatch + ":temp\nexit";
+                        }
+                    }
+                    else goto start;
+
+                    lastcommand = commands[a];
+                }
+            }
+            //Finished
+            batch = confusedbatch;
+        }
         private void buildbutton_Click(object sender, EventArgs e)
         {
             if (forcerestart)
@@ -353,9 +507,9 @@ namespace BSBuilder
                     if (obfuscate)
                         obfuscatebatch(batch, 1);
 
+                    //Optimize (Recurring won't be deleted otherwise)
                     if (optimize)
                     {
-                        batch = Regex.Replace(batch, @"^::.*", string.Empty, RegexOptions.Multiline);
                         batch = Regex.Replace(batch, @"^\s*$\n|\r", string.Empty, RegexOptions.Multiline);
                     }
 
@@ -387,145 +541,16 @@ namespace BSBuilder
 
                     if (confuse)
                     {
-                        Random rand = new Random();
+                        confusebatch();
+                    }
 
-                        //Amount of lines
-                        int phase01random = rand.Next(100, 15000);
-                        int phase03random = rand.Next(100, 3500);
-
-                        //Variable for soon to be confused batch
-                        string confusedbatch = "";
-
-                        //Random bullshit commands that serve no actual purpose
-                        string[] commands = {
-                            "IF %F%==1 IF %C%==1",
-                            "   ELSE IF %F%==1 IF %C%==0",
-                            "ELSE IF %F%==0 IF %C%==1",
-                            " ELSE IF %F%==0 IF %C%==1",
-                            "goto endoftests",
-                            "   goto workdone",
-                            "set F=%date%",
-                            ":: Fixed",
-                            "if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.)",
-                            "   if %user_agrees% do",
-                            "set /p folder=fd:" +
-                            "FOR /R %folder% %%G IN (.) DO (" +
-                            "   set filepath=%%~dpa" +
-                            "\n)" +
-                            "%time% & dir & echo %time%",
-                            "\npause" +
-                            "\n)",
-                            "   set filepath=%%~fG",
-                            "set filepath=%%~fG & set /p folder=f: & set F=%date% & for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a",
-                            "   set for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a & set F=%date%",
-                            "ELSE IF %F%==0 IF %C%==1 & set C=cls & set /A spl =1",
-                            "   timeout /t 2 /nobreak > NUL & if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.) & IF %F%==1 do %C%==1",
-                            "timeout /t 2 /nobreak > NUL & if errorlevel 1(set r = true, % then %) else (set r = success, % then %, false.) &IF % F %== 2 do % C %== 4",
-                            "   set C=cls",
-                            "   set /A sample =1",
-                            "   fc /l %comp1% %comp2%",
-                            "for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a",
-                            "   timeout /t 2 /nobreak > NUL",
-                            "   if errorlevel 1 (@echo off) else",
-                            "whoami",
-                            "   if %ERRORLEVEL% EQU 1 goto w",
-                            "move \"%sourceFile%\" \"%destinationFile%\"",
-                            "   move \"%sourceFile%\" \"%destinationFile%\"",
-                            "cls",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "if 0==1 0",
-                            "   if 0==1 0",
-                            "cd.",
-                            "call",
-                            "   call",
-                            "setlocal",
-                            "2>NUL Info > %tempsys%",
-                            "   2>NUL Info > %tempsys%"
-                        };
-
-                        //To avoid two same commands being put in a row 
-                        string lastcommand = "";
-
-                        //PHASE 01 | ADD RANDOM GARBAGE COMMANDS TO THE START
-                        for (int i = 0; i <= phase01random; i++)
-                        {
-                            //First time
-                            if (i == 1)
-                            {
-                                //Fake copyright notice ranging from 2004-2009 with a fake version
-                                confusedbatch = ":: Copyright © 200" + rand.Next(4, 9) + " - V" + rand.Next(1, 10) + "." + rand.Next(1, 69420) + "\n@echo off\ncd.\nif 0==1 0\ngoto tmp";
-                            }
-                            //Generally
-                            else
-                            {
-                                start:
-                                int a = rand.Next(0, commands.Length);
-
-                                if (commands[a] != lastcommand)
-                                {
-                                    confusedbatch = confusedbatch + Environment.NewLine;
-                                    confusedbatch = confusedbatch + commands[a];
-
-                                    if (i == phase01random)
-                                    {
-                                        //Last time
-                                        confusedbatch = confusedbatch + Environment.NewLine;
-                                        confusedbatch = confusedbatch + ":tmp";
-                                    }
-                                }
-                                else goto start;
-
-                                lastcommand = commands[a];
-                            }
-                        }
-
-                        //PHASE 02 | ADD BATCH CONTENT TO THE MIDDLE
-                        confusedbatch = confusedbatch + "\n" + batch;
-
-                        //PHASE 03 | ADD RANDOM GARBAGE TO THE END
-                        for (int i = 0; i <= phase03random; i++)
-                        {
-                            //First time
-                            if (i == 1)
-                            {
-                                confusedbatch = confusedbatch + Environment.NewLine;
-                                confusedbatch = confusedbatch + "goto temp";
-                            }
-                            //Generally
-                            else
-                            {
-                                start:
-                                int a = rand.Next(0, commands.Length);
-
-                                if (commands[a] != lastcommand)
-                                {
-                                    confusedbatch = confusedbatch + Environment.NewLine;
-                                    confusedbatch = confusedbatch + commands[a];
-
-                                    if (i == phase03random)
-                                    {
-                                        //Last time
-                                        confusedbatch = confusedbatch + Environment.NewLine;
-                                        confusedbatch = confusedbatch + ":temp\nexit";
-                                    }
-                                }
-                                else goto start;
-
-                                lastcommand = commands[a];
-                            }
-                        }
-
-                        //Finished
-                        batch = confusedbatch;
+                    //Second optimize (Remove empty lines, spaces and comments)
+                    if (optimize)
+                    {
+                        batch = Regex.Replace(batch, @"^::.*", string.Empty, RegexOptions.Multiline);
+                        batch = Regex.Replace(batch, @"^\s*$\n|\r", string.Empty, RegexOptions.Multiline);
+                        batch = Regex.Replace(batch, @"\t", string.Empty, RegexOptions.Multiline);
+                        batch = Regex.Replace(batch, @"[\n\r]+$", string.Empty, RegexOptions.Multiline);
                     }
 
                     //Write batch
@@ -533,9 +558,6 @@ namespace BSBuilder
                     {
                         wt.WriteLine(batch);
                     }
-
-                    //Open finished batch folder
-                    Process.Start(AppDomain.CurrentDomain.BaseDirectory);
 
                     //Basically useless stuff as program will get restarted anyways
                     richtextbox.Text = batch;
@@ -554,61 +576,6 @@ namespace BSBuilder
                     MessageBox.Show("Could not build, missing batch script.", "Critical Error");
                 }
             }
-        }
-
-        private void webhooktextbox_TextChanged(object sender, EventArgs e)
-        {
-            webhook = webhooktextbox.Text;
-        }
-
-        private void reportstartmsgtextbox_TextChanged(object sender, EventArgs e)
-        {
-            reportstartmsg = reportstartmsgtextbox.Text;
-        }
-
-        private void reportendmsgtextbox_TextChanged(object sender, EventArgs e)
-        {
-            reportendmsg = reportendmsgtextbox.Text;
-        }
-
-        private void hidepathtextbox_TextChanged(object sender, EventArgs e)
-        {
-            hidepath = hidepathtextbox.Text;
-        }
-
-        private void schedulenametextbox_TextChanged(object sender, EventArgs e)
-        {
-            schedulename = schedulenametextbox.Text;
-        }
-
-        private void batchcopynametextbox_TextChanged(object sender, EventArgs e)
-        {
-            batchcopyname = batchcopynametextbox.Text;
-        }
-
-        private void batchupdaternametextbox_TextChanged(object sender, EventArgs e)
-        {
-            batchupdatername = batchupdaternametextbox.Text;
-        }
-
-        private void vbnametextbox_TextChanged(object sender, EventArgs e)
-        {
-            vbname = vbnametextbox.Text;
-        }
-
-        private void updateurltextbox_TextChanged(object sender, EventArgs e)
-        {
-            updateurl = updateurltextbox.Text;
-        }
-
-        private void targetusernametextbox_TextChanged(object sender, EventArgs e)
-        {
-            targetusername = targetusernametextbox.Text;
-        }
-
-        private void fetchurl_TextChanged(object sender, EventArgs e)
-        {
-            batchfetchURL = fetchurl.Text;
         }
 
         string freq_arg = "/mo";
@@ -682,10 +649,76 @@ namespace BSBuilder
             }
         }
 
+        private void openfolder_Click(object sender, EventArgs e)
+        {
+            Process.Start(AppDomain.CurrentDomain.BaseDirectory);
+        }
+
+        private void webhooktextbox_TextChanged(object sender, EventArgs e)
+        {
+            webhook = webhooktextbox.Text;
+        }
+
+        private void reportstartmsgtextbox_TextChanged(object sender, EventArgs e)
+        {
+            reportstartmsg = reportstartmsgtextbox.Text;
+        }
+
+        private void reportendmsgtextbox_TextChanged(object sender, EventArgs e)
+        {
+            reportendmsg = reportendmsgtextbox.Text;
+        }
+
+        private void hidepathtextbox_TextChanged(object sender, EventArgs e)
+        {
+            hidepath = hidepathtextbox.Text;
+        }
+
+        private void schedulenametextbox_TextChanged(object sender, EventArgs e)
+        {
+            schedulename = schedulenametextbox.Text;
+        }
+
+        private void batchcopynametextbox_TextChanged(object sender, EventArgs e)
+        {
+            batchcopyname = batchcopynametextbox.Text;
+        }
+
+        private void batchupdaternametextbox_TextChanged(object sender, EventArgs e)
+        {
+            batchupdatername = batchupdaternametextbox.Text;
+        }
+
+        private void vbnametextbox_TextChanged(object sender, EventArgs e)
+        {
+            vbname = vbnametextbox.Text;
+        }
+
+        private void updateurltextbox_TextChanged(object sender, EventArgs e)
+        {
+            updateurl = updateurltextbox.Text;
+        }
+
+        private void targetusernametextbox_TextChanged(object sender, EventArgs e)
+        {
+            targetusername = targetusernametextbox.Text;
+        }
+
+        private void fetchurl_TextChanged(object sender, EventArgs e)
+        {
+            batchfetchURL = fetchurl.Text;
+        }
+
         private void scheduleFrequency_ValueChanged(object sender, EventArgs e)
         {
             scheduleFreq = scheduleFrequency.Value;
         }
+
+        private void sstooltextbox_TextChanged(object sender, EventArgs e)
+        {
+            screenshottoolurl = sstooltextbox.Text;
+        }
+
 
         private void acceptTOScheckbox_CheckedChanged(object sender, EventArgs e)
         {
@@ -693,11 +726,13 @@ namespace BSBuilder
             {
                 acceptTOS = true;
                 allpanel.Enabled = true;
+                panel3.Enabled = true;
             }
             else
             {
                 acceptTOS = false;
                 allpanel.Enabled = false;
+                panel3.Enabled = false;
             }
         }
 
@@ -943,6 +978,32 @@ namespace BSBuilder
             }
         }
 
+        private void confusecheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (confusecheckbox.Checked)
+            {
+                confuse = true;
+            }
+            else
+            {
+                confuse = false;
+            }
+        }
+
+        private void screenshotcheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (screenshotcheckbox.Checked)
+            {
+                screenshot = true;
+                ssgroupbox.Enabled = true;
+            }
+            else
+            {
+                screenshot = false;
+                ssgroupbox.Enabled = false;
+            }
+        }
+
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -989,35 +1050,9 @@ namespace BSBuilder
             fetchbatch();
         }
 
-        private void confusecheckbox_CheckedChanged(object sender, EventArgs e)
+        private void minimizebutton_Click(object sender, EventArgs e)
         {
-            if (confusecheckbox.Checked)
-            {
-                confuse = true;
-            }
-            else
-            {
-                confuse = false;
-            }
-        }
-
-        private void screenshotcheckbox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (screenshotcheckbox.Checked)
-            {
-                screenshot = true;
-                ssgroupbox.Enabled = true;
-            }
-            else
-            {
-                screenshot = false;
-                ssgroupbox.Enabled = false;
-            }
-        }
-
-        private void sstooltextbox_TextChanged(object sender, EventArgs e)
-        {
-            screenshottoolurl = sstooltextbox.Text;
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
