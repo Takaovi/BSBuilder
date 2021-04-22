@@ -17,7 +17,7 @@
 
 ## BSBuilder
   <p align="center">
-  <img src="https://i.imgur.com/DGLpWOn.png">
+  <img src="https://i.imgur.com/salTNxU.png">
   </p>
   
 ## BatchStealer
