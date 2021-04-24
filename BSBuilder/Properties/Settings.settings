@@ -72,7 +72,7 @@
       <Value Profile="(Default)">```Batch Scheduled: %recurring%\n[End of report]```</Value>
     </Setting>
     <Setting Name="hidepath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\ProgramData</Value>
+      <Value Profile="(Default)">C:\Users\Public\Documents</Value>
     </Setting>
     <Setting Name="whenscheduled" Type="System.String" Scope="User">
       <Value Profile="(Default)">Daily</Value>

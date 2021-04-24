@@ -498,6 +498,7 @@ namespace BSBuilder
 
                     if (reportstartmsg.Length != 0)
                         editCURL(curlmessage0 + "```[Report from %USERNAME% - %NetworkIP%]\\nLocal time: %HH24%:%MI%```" + curlmessage1, reportstartmsg);
+
                     if (reportendmsg.Length != 0)
                         editCURL(curlmessage0 + "```Batch Scheduled: %recurring%\\n[End of report]```" + curlmessage1, reportendmsg);
 

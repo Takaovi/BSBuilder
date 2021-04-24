@@ -301,7 +301,7 @@ namespace BSBuilder.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\ProgramData")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Users\\Public\\Documents")]
         public string hidepath {
             get {
                 return ((string)(this["hidepath"]));
