@@ -478,5 +478,29 @@ namespace BSBuilder.Properties {
                 this["scheduleFrequency"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool push {
+            get {
+                return ((bool)(this["push"]));
+            }
+            set {
+                this["push"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool cert {
+            get {
+                return ((bool)(this["cert"]));
+            }
+            set {
+                this["cert"] = value;
+            }
+        }
     }
 }

