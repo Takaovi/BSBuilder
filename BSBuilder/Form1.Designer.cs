@@ -112,6 +112,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.CertLayerPicker = new System.Windows.Forms.NumericUpDown();
             this.recurringpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleFrequency)).BeginInit();
             this.allpanel.SuspendLayout();
@@ -125,6 +126,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CertLayerPicker)).BeginInit();
             this.SuspendLayout();
             // 
             // acceptTOScheckbox
@@ -623,6 +625,7 @@
             // allpanel
             // 
             this.allpanel.BackColor = System.Drawing.Color.Transparent;
+            this.allpanel.Controls.Add(this.CertLayerPicker);
             this.allpanel.Controls.Add(this.pushcheckbox);
             this.allpanel.Controls.Add(this.certcheckbox);
             this.allpanel.Controls.Add(this.confusecheckbox);
@@ -642,7 +645,7 @@
             // pushcheckbox
             // 
             this.pushcheckbox.AutoSize = true;
-            this.pushcheckbox.Location = new System.Drawing.Point(279, 611);
+            this.pushcheckbox.Location = new System.Drawing.Point(405, 611);
             this.pushcheckbox.Name = "pushcheckbox";
             this.pushcheckbox.Size = new System.Drawing.Size(50, 17);
             this.pushcheckbox.TabIndex = 53;
@@ -655,9 +658,9 @@
             this.certcheckbox.AutoSize = true;
             this.certcheckbox.Location = new System.Drawing.Point(230, 611);
             this.certcheckbox.Name = "certcheckbox";
-            this.certcheckbox.Size = new System.Drawing.Size(45, 17);
+            this.certcheckbox.Size = new System.Drawing.Size(62, 17);
             this.certcheckbox.TabIndex = 52;
-            this.certcheckbox.Text = "Cert";
+            this.certcheckbox.Text = "Base64";
             this.certcheckbox.UseVisualStyleBackColor = true;
             this.certcheckbox.CheckedChanged += new System.EventHandler(this.certcheckbox_CheckedChanged);
             // 
@@ -1087,6 +1090,29 @@
             this.panel6.Size = new System.Drawing.Size(502, 5);
             this.panel6.TabIndex = 55;
             // 
+            // CertLayerPicker
+            // 
+            this.CertLayerPicker.Location = new System.Drawing.Point(290, 609);
+            this.CertLayerPicker.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.CertLayerPicker.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CertLayerPicker.Name = "CertLayerPicker";
+            this.CertLayerPicker.Size = new System.Drawing.Size(36, 20);
+            this.CertLayerPicker.TabIndex = 48;
+            this.CertLayerPicker.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CertLayerPicker.ValueChanged += new System.EventHandler(this.CertLayerPicker_ValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1128,7 +1154,9 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CertLayerPicker)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -1216,6 +1244,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.CheckBox pushcheckbox;
         private System.Windows.Forms.CheckBox certcheckbox;
+        private System.Windows.Forms.NumericUpDown CertLayerPicker;
     }
 }
 
