@@ -76,6 +76,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.whenscheduledtextbox = new System.Windows.Forms.ComboBox();
             this.allpanel = new System.Windows.Forms.Panel();
+            this.CertLayerPicker = new System.Windows.Forms.NumericUpDown();
             this.pushcheckbox = new System.Windows.Forms.CheckBox();
             this.certcheckbox = new System.Windows.Forms.CheckBox();
             this.confusecheckbox = new System.Windows.Forms.CheckBox();
@@ -112,10 +113,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.CertLayerPicker = new System.Windows.Forms.NumericUpDown();
             this.recurringpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleFrequency)).BeginInit();
             this.allpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CertLayerPicker)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -126,7 +127,6 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CertLayerPicker)).BeginInit();
             this.SuspendLayout();
             // 
             // acceptTOScheckbox
@@ -642,10 +642,33 @@
             this.allpanel.Size = new System.Drawing.Size(476, 681);
             this.allpanel.TabIndex = 47;
             // 
+            // CertLayerPicker
+            // 
+            this.CertLayerPicker.Location = new System.Drawing.Point(290, 609);
+            this.CertLayerPicker.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.CertLayerPicker.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CertLayerPicker.Name = "CertLayerPicker";
+            this.CertLayerPicker.Size = new System.Drawing.Size(36, 20);
+            this.CertLayerPicker.TabIndex = 48;
+            this.CertLayerPicker.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.CertLayerPicker.ValueChanged += new System.EventHandler(this.CertLayerPicker_ValueChanged);
+            // 
             // pushcheckbox
             // 
             this.pushcheckbox.AutoSize = true;
-            this.pushcheckbox.Location = new System.Drawing.Point(405, 611);
+            this.pushcheckbox.Location = new System.Drawing.Point(332, 611);
             this.pushcheckbox.Name = "pushcheckbox";
             this.pushcheckbox.Size = new System.Drawing.Size(50, 17);
             this.pushcheckbox.TabIndex = 53;
@@ -1090,29 +1113,6 @@
             this.panel6.Size = new System.Drawing.Size(502, 5);
             this.panel6.TabIndex = 55;
             // 
-            // CertLayerPicker
-            // 
-            this.CertLayerPicker.Location = new System.Drawing.Point(290, 609);
-            this.CertLayerPicker.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.CertLayerPicker.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.CertLayerPicker.Name = "CertLayerPicker";
-            this.CertLayerPicker.Size = new System.Drawing.Size(36, 20);
-            this.CertLayerPicker.TabIndex = 48;
-            this.CertLayerPicker.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.CertLayerPicker.ValueChanged += new System.EventHandler(this.CertLayerPicker_ValueChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1136,6 +1136,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.scheduleFrequency)).EndInit();
             this.allpanel.ResumeLayout(false);
             this.allpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CertLayerPicker)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1154,7 +1155,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CertLayerPicker)).EndInit();
             this.ResumeLayout(false);
 
         }
