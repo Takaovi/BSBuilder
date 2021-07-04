@@ -3,7 +3,7 @@
 ### 📜 Batch Stealer builder/editor
 
   <p align="center">
-  <img src="https://i.imgur.com/salTNxU.png">
+  <img src="https://i.imgur.com/PqE9HnP.png">
   <img src="https://madewithlove.now.sh/fi?heart=true&colorB=%23387fdc&template=plastic">
   </p>
 
