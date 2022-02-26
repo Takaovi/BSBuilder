@@ -1,6 +1,6 @@
 ﻿namespace BSBuilder
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -89,11 +89,11 @@
             this.screenshotcheckbox = new System.Windows.Forms.CheckBox();
             this.ssgroupbox = new System.Windows.Forms.GroupBox();
             this.screenshotbox = new System.Windows.Forms.Panel();
-            this.sstooltextbox = new System.Windows.Forms.TextBox();
+            this.screenshottoolurltextbox = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.ipconfigcheckbox = new System.Windows.Forms.CheckBox();
             this.Builderbox = new System.Windows.Forms.GroupBox();
-            this.fetchurl = new System.Windows.Forms.TextBox();
+            this.batchfetchURLtextbox = new System.Windows.Forms.TextBox();
             this.searchbatchbutton = new System.Windows.Forms.Button();
             this.batchlocationtextbox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -816,20 +816,20 @@
             // 
             // screenshotbox
             // 
-            this.screenshotbox.Controls.Add(this.sstooltextbox);
+            this.screenshotbox.Controls.Add(this.screenshottoolurltextbox);
             this.screenshotbox.Controls.Add(this.label17);
             this.screenshotbox.Location = new System.Drawing.Point(4, 15);
             this.screenshotbox.Name = "screenshotbox";
             this.screenshotbox.Size = new System.Drawing.Size(435, 46);
             this.screenshotbox.TabIndex = 23;
             // 
-            // sstooltextbox
+            // screenshottoolurltextbox
             // 
-            this.sstooltextbox.Location = new System.Drawing.Point(2, 3);
-            this.sstooltextbox.Name = "sstooltextbox";
-            this.sstooltextbox.Size = new System.Drawing.Size(431, 20);
-            this.sstooltextbox.TabIndex = 47;
-            this.sstooltextbox.TextChanged += new System.EventHandler(this.sstooltextbox_TextChanged);
+            this.screenshottoolurltextbox.Location = new System.Drawing.Point(2, 3);
+            this.screenshottoolurltextbox.Name = "screenshottoolurltextbox";
+            this.screenshottoolurltextbox.Size = new System.Drawing.Size(431, 20);
+            this.screenshottoolurltextbox.TabIndex = 47;
+            this.screenshottoolurltextbox.TextChanged += new System.EventHandler(this.sstooltextbox_TextChanged);
             // 
             // label17
             // 
@@ -866,17 +866,17 @@
             this.Builderbox.TabStop = false;
             this.Builderbox.Text = "Builder";
             // 
-            // fetchurl
+            // batchfetchURLtextbox
             // 
-            this.fetchurl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.fetchurl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fetchurl.Font = new System.Drawing.Font("Noto Sans", 9F);
-            this.fetchurl.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.fetchurl.Location = new System.Drawing.Point(16, 26);
-            this.fetchurl.Name = "fetchurl";
-            this.fetchurl.Size = new System.Drawing.Size(292, 24);
-            this.fetchurl.TabIndex = 43;
-            this.fetchurl.TextChanged += new System.EventHandler(this.fetchurl_TextChanged);
+            this.batchfetchURLtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.batchfetchURLtextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.batchfetchURLtextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.batchfetchURLtextbox.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.batchfetchURLtextbox.Location = new System.Drawing.Point(16, 26);
+            this.batchfetchURLtextbox.Name = "batchfetchURLtextbox";
+            this.batchfetchURLtextbox.Size = new System.Drawing.Size(292, 21);
+            this.batchfetchURLtextbox.TabIndex = 43;
+            this.batchfetchURLtextbox.TextChanged += new System.EventHandler(this.fetchurl_TextChanged);
             // 
             // searchbatchbutton
             // 
@@ -886,7 +886,7 @@
             this.searchbatchbutton.ForeColor = System.Drawing.Color.White;
             this.searchbatchbutton.Location = new System.Drawing.Point(666, 26);
             this.searchbatchbutton.Name = "searchbatchbutton";
-            this.searchbatchbutton.Size = new System.Drawing.Size(50, 24);
+            this.searchbatchbutton.Size = new System.Drawing.Size(50, 21);
             this.searchbatchbutton.TabIndex = 44;
             this.searchbatchbutton.Text = "Find";
             this.searchbatchbutton.UseVisualStyleBackColor = false;
@@ -896,12 +896,12 @@
             // 
             this.batchlocationtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.batchlocationtextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.batchlocationtextbox.Font = new System.Drawing.Font("Noto Sans", 9F);
+            this.batchlocationtextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.batchlocationtextbox.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.batchlocationtextbox.Location = new System.Drawing.Point(376, 26);
             this.batchlocationtextbox.Name = "batchlocationtextbox";
             this.batchlocationtextbox.ReadOnly = true;
-            this.batchlocationtextbox.Size = new System.Drawing.Size(293, 24);
+            this.batchlocationtextbox.Size = new System.Drawing.Size(293, 21);
             this.batchlocationtextbox.TabIndex = 43;
             // 
             // panel1
@@ -935,11 +935,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Noto Sans Cond", 15.75F);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.label13.ForeColor = System.Drawing.Color.White;
             this.label13.Location = new System.Drawing.Point(4, 5);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(93, 28);
+            this.label13.Size = new System.Drawing.Size(107, 25);
             this.label13.TabIndex = 48;
             this.label13.Text = "BSBuilder";
             this.label13.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label13_MouseDown);
@@ -981,7 +981,7 @@
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.fetchstatus);
             this.panel2.Controls.Add(this.searchbatchbutton);
-            this.panel2.Controls.Add(this.fetchurl);
+            this.panel2.Controls.Add(this.batchfetchURLtextbox);
             this.panel2.Controls.Add(this.batchlocationtextbox);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.richtextbox);
@@ -1002,11 +1002,11 @@
             // 
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F);
             this.label16.ForeColor = System.Drawing.Color.White;
             this.label16.Location = new System.Drawing.Point(375, 9);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 15);
+            this.label16.Size = new System.Drawing.Size(63, 13);
             this.label16.TabIndex = 51;
             this.label16.Text = "Load PATH";
             // 
@@ -1018,7 +1018,7 @@
             this.fetchbutton.ForeColor = System.Drawing.Color.White;
             this.fetchbutton.Location = new System.Drawing.Point(305, 26);
             this.fetchbutton.Name = "fetchbutton";
-            this.fetchbutton.Size = new System.Drawing.Size(50, 24);
+            this.fetchbutton.Size = new System.Drawing.Size(50, 21);
             this.fetchbutton.TabIndex = 48;
             this.fetchbutton.Text = "Fetch";
             this.fetchbutton.UseVisualStyleBackColor = false;
@@ -1028,11 +1028,11 @@
             // 
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F);
             this.label15.ForeColor = System.Drawing.Color.DimGray;
             this.label15.Location = new System.Drawing.Point(436, 9);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(204, 15);
+            this.label15.Size = new System.Drawing.Size(183, 13);
             this.label15.TabIndex = 47;
             this.label15.Text = "(Use if fetching from URL didn\'t work)";
             // 
@@ -1040,22 +1040,22 @@
             // 
             this.fetchstatus.AutoSize = true;
             this.fetchstatus.BackColor = System.Drawing.Color.Transparent;
-            this.fetchstatus.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.fetchstatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F);
             this.fetchstatus.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.fetchstatus.Location = new System.Drawing.Point(10, 69);
             this.fetchstatus.Name = "fetchstatus";
-            this.fetchstatus.Size = new System.Drawing.Size(0, 15);
+            this.fetchstatus.Size = new System.Drawing.Size(0, 13);
             this.fetchstatus.TabIndex = 51;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F);
             this.label14.ForeColor = System.Drawing.Color.White;
             this.label14.Location = new System.Drawing.Point(14, 8);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(59, 15);
+            this.label14.Size = new System.Drawing.Size(59, 13);
             this.label14.TabIndex = 50;
             this.label14.Text = "Fetch URL";
             // 
@@ -1063,7 +1063,7 @@
             // 
             this.richtextbox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.richtextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richtextbox.Font = new System.Drawing.Font("Noto Sans", 8.249999F);
+            this.richtextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F);
             this.richtextbox.ForeColor = System.Drawing.Color.Silver;
             this.richtextbox.Location = new System.Drawing.Point(16, 91);
             this.richtextbox.Name = "richtextbox";
@@ -1113,7 +1113,7 @@
             this.panel6.Size = new System.Drawing.Size(502, 5);
             this.panel6.TabIndex = 55;
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1126,7 +1126,7 @@
             this.Controls.Add(this.panel6);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BSBuilder @github.com/Takaovi/BSBuilder";
@@ -1160,49 +1160,20 @@
         }
 
         #endregion
-        private System.Windows.Forms.CheckBox acceptTOScheckbox;
-        private System.Windows.Forms.CheckBox startadmincheckbox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox webhooktextbox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox hidepathtextbox;
-        private System.Windows.Forms.CheckBox systeminfocheckbox;
-        private System.Windows.Forms.CheckBox tasklistcheckbox;
-        private System.Windows.Forms.CheckBox netusercheckbox;
-        private System.Windows.Forms.CheckBox qusercheckbox;
-        private System.Windows.Forms.CheckBox cmdkeycheckbox;
-        private System.Windows.Forms.CheckBox chromecheckbox;
-        private System.Windows.Forms.CheckBox operacheckbox;
-        private System.Windows.Forms.CheckBox vivaldicheckbox;
-        private System.Windows.Forms.CheckBox firefoxcheckbox;
-        private System.Windows.Forms.CheckBox osucheckbox;
-        private System.Windows.Forms.CheckBox discordcheckbox;
-        private System.Windows.Forms.CheckBox steamcheckbox;
-        private System.Windows.Forms.CheckBox minecraftcheckbox;
-        private System.Windows.Forms.CheckBox growtopiacheckbox;
-        private System.Windows.Forms.CheckBox recurringcheckbox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox updateurltextbox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox targetusernametextbox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox schedulenametextbox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox batchcopynametextbox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox batchupdaternametextbox;
         private System.Windows.Forms.Label vbsnametextbox;
-        private System.Windows.Forms.TextBox vbnametextbox;
-        private System.Windows.Forms.CheckBox selfdeletecheckbox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox reportstartmsgtextbox;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox reportendmsgtextbox;
         private System.Windows.Forms.Button buildbutton;
         private System.Windows.Forms.Panel recurringpanel;
-        private System.Windows.Forms.ComboBox whenscheduledtextbox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel allpanel;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1210,12 +1181,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox Builderbox;
-        private System.Windows.Forms.CheckBox obfuscatecheckbox;
-        private System.Windows.Forms.CheckBox optimizecheckbox;
-        private System.Windows.Forms.TextBox fetchurl;
-        private System.Windows.Forms.TextBox batchlocationtextbox;
         private System.Windows.Forms.Button searchbatchbutton;
-        private System.Windows.Forms.CheckBox ipconfigcheckbox;
         private System.Windows.Forms.Button searchhidepathbutton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button inspectorbutton;
@@ -1226,25 +1192,59 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.RichTextBox richtextbox;
         private System.Windows.Forms.Label fetchstatus;
-        private System.Windows.Forms.CheckBox confusecheckbox;
-        private System.Windows.Forms.GroupBox ssgroupbox;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox sstooltextbox;
-        private System.Windows.Forms.CheckBox screenshotcheckbox;
         private System.Windows.Forms.Panel screenshotbox;
         private System.Windows.Forms.Label freqlabel;
-        private System.Windows.Forms.NumericUpDown scheduleFrequency;
         private System.Windows.Forms.Button openfolder;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button minimizebutton;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.CheckBox pushcheckbox;
-        private System.Windows.Forms.CheckBox certcheckbox;
-        private System.Windows.Forms.NumericUpDown CertLayerPicker;
+        public System.Windows.Forms.CheckBox growtopiacheckbox;
+        public System.Windows.Forms.CheckBox acceptTOScheckbox;
+        public System.Windows.Forms.CheckBox startadmincheckbox;
+        public System.Windows.Forms.TextBox webhooktextbox;
+        public System.Windows.Forms.TextBox hidepathtextbox;
+        public System.Windows.Forms.CheckBox systeminfocheckbox;
+        public System.Windows.Forms.CheckBox tasklistcheckbox;
+        public System.Windows.Forms.CheckBox netusercheckbox;
+        public System.Windows.Forms.CheckBox qusercheckbox;
+        public System.Windows.Forms.CheckBox cmdkeycheckbox;
+        public System.Windows.Forms.CheckBox chromecheckbox;
+        public System.Windows.Forms.CheckBox operacheckbox;
+        public System.Windows.Forms.CheckBox vivaldicheckbox;
+        public System.Windows.Forms.CheckBox firefoxcheckbox;
+        public System.Windows.Forms.CheckBox osucheckbox;
+        public System.Windows.Forms.CheckBox discordcheckbox;
+        public System.Windows.Forms.CheckBox steamcheckbox;
+        public System.Windows.Forms.CheckBox minecraftcheckbox;
+        public System.Windows.Forms.CheckBox recurringcheckbox;
+        public System.Windows.Forms.TextBox updateurltextbox;
+        public System.Windows.Forms.TextBox targetusernametextbox;
+        public System.Windows.Forms.TextBox schedulenametextbox;
+        public System.Windows.Forms.TextBox batchcopynametextbox;
+        public System.Windows.Forms.TextBox batchupdaternametextbox;
+        public System.Windows.Forms.TextBox vbnametextbox;
+        public System.Windows.Forms.CheckBox selfdeletecheckbox;
+        public System.Windows.Forms.TextBox reportstartmsgtextbox;
+        public System.Windows.Forms.TextBox reportendmsgtextbox;
+        public System.Windows.Forms.ComboBox whenscheduledtextbox;
+        public System.Windows.Forms.CheckBox obfuscatecheckbox;
+        public System.Windows.Forms.CheckBox optimizecheckbox;
+        public System.Windows.Forms.TextBox batchfetchURLtextbox;
+        public System.Windows.Forms.TextBox batchlocationtextbox;
+        public System.Windows.Forms.CheckBox ipconfigcheckbox;
+        public System.Windows.Forms.RichTextBox richtextbox;
+        public System.Windows.Forms.CheckBox confusecheckbox;
+        public System.Windows.Forms.TextBox screenshottoolurltextbox;
+        public System.Windows.Forms.CheckBox screenshotcheckbox;
+        public System.Windows.Forms.NumericUpDown scheduleFrequency;
+        public System.Windows.Forms.CheckBox pushcheckbox;
+        public System.Windows.Forms.CheckBox certcheckbox;
+        public System.Windows.Forms.NumericUpDown CertLayerPicker;
+        public System.Windows.Forms.GroupBox ssgroupbox;
     }
 }
 
