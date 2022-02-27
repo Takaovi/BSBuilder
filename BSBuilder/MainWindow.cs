@@ -679,6 +679,7 @@ namespace BSBuilder
                     if (batch.Length != 0) 
                     {
                         fetchstatus.Text = "Batch file loaded from local drive";
+                        fetchedBatch = batch;
                     }
                 }
                 catch
