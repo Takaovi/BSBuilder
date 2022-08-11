@@ -66,7 +66,7 @@
       <Value Profile="(Default)">https://discord.com/api/webhooks/</Value>
     </Setting>
     <Setting Name="reportstartmsg" Type="System.String" Scope="User">
-      <Value Profile="(Default)">```[Report from %USERNAME% - %NetworkIP%]\nLocal time: %HH24%:%MI%```</Value>
+      <Value Profile="(Default)">```[Report from %USERNAME% - %PublicIP%]\nLocal time: %HH24%:%MI%```</Value>
     </Setting>
     <Setting Name="reportendmsg" Type="System.String" Scope="User">
       <Value Profile="(Default)">```Batch Scheduled: %recurring%\n[End of report]```</Value>

@@ -277,7 +277,7 @@ namespace BSBuilder.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("```[Report from %USERNAME% - %NetworkIP%]\\nLocal time: %HH24%:%MI%```")]
+        [global::System.Configuration.DefaultSettingValueAttribute("```[Report from %USERNAME% - %PublicIP%]\\nLocal time: %HH24%:%MI%```")]
         public string reportstartmsg {
             get {
                 return ((string)(this["reportstartmsg"]));
