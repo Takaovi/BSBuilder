@@ -38,12 +38,8 @@ namespace BSBuilder
 
         public string removeFunction(string batch, string data)
         {
-            string first = data;
-
-            data = data.Substring(5);
-            data = ":" + data.PadLeft(data.Length, '0');
-
-            string last = data;
+            string first = "goto " + data,
+                   last = ":" + data.PadLeft(data.Length, '0');
 
             return Regex.Replace(batch, first + "\n((.+\n)+)" + last, string.Empty);
         }

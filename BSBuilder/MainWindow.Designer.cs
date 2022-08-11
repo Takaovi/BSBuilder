@@ -113,6 +113,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.startupprogramscheckbox = new System.Windows.Forms.CheckBox();
             this.recurringpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleFrequency)).BeginInit();
             this.allpanel.SuspendLayout();
@@ -644,7 +645,7 @@
             // 
             // CertLayerPicker
             // 
-            this.CertLayerPicker.Location = new System.Drawing.Point(290, 609);
+            this.CertLayerPicker.Location = new System.Drawing.Point(290, 637);
             this.CertLayerPicker.Maximum = new decimal(new int[] {
             50,
             0,
@@ -668,7 +669,7 @@
             // pushcheckbox
             // 
             this.pushcheckbox.AutoSize = true;
-            this.pushcheckbox.Location = new System.Drawing.Point(332, 611);
+            this.pushcheckbox.Location = new System.Drawing.Point(332, 639);
             this.pushcheckbox.Name = "pushcheckbox";
             this.pushcheckbox.Size = new System.Drawing.Size(50, 17);
             this.pushcheckbox.TabIndex = 53;
@@ -679,7 +680,7 @@
             // certcheckbox
             // 
             this.certcheckbox.AutoSize = true;
-            this.certcheckbox.Location = new System.Drawing.Point(230, 611);
+            this.certcheckbox.Location = new System.Drawing.Point(230, 639);
             this.certcheckbox.Name = "certcheckbox";
             this.certcheckbox.Size = new System.Drawing.Size(62, 17);
             this.certcheckbox.TabIndex = 52;
@@ -690,7 +691,7 @@
             // confusecheckbox
             // 
             this.confusecheckbox.AutoSize = true;
-            this.confusecheckbox.Location = new System.Drawing.Point(146, 612);
+            this.confusecheckbox.Location = new System.Drawing.Point(146, 640);
             this.confusecheckbox.Name = "confusecheckbox";
             this.confusecheckbox.Size = new System.Drawing.Size(82, 17);
             this.confusecheckbox.TabIndex = 51;
@@ -702,7 +703,7 @@
             // 
             this.obfuscatecheckbox.AutoSize = true;
             this.obfuscatecheckbox.Enabled = false;
-            this.obfuscatecheckbox.Location = new System.Drawing.Point(73, 612);
+            this.obfuscatecheckbox.Location = new System.Drawing.Point(73, 640);
             this.obfuscatecheckbox.Name = "obfuscatecheckbox";
             this.obfuscatecheckbox.Size = new System.Drawing.Size(75, 17);
             this.obfuscatecheckbox.TabIndex = 50;
@@ -713,7 +714,7 @@
             // optimizecheckbox
             // 
             this.optimizecheckbox.AutoSize = true;
-            this.optimizecheckbox.Location = new System.Drawing.Point(10, 612);
+            this.optimizecheckbox.Location = new System.Drawing.Point(10, 640);
             this.optimizecheckbox.Name = "optimizecheckbox";
             this.optimizecheckbox.Size = new System.Drawing.Size(66, 17);
             this.optimizecheckbox.TabIndex = 43;
@@ -746,7 +747,7 @@
             this.groupBox3.Controls.Add(this.recurringpanel);
             this.groupBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
-            this.groupBox3.Location = new System.Drawing.Point(6, 431);
+            this.groupBox3.Location = new System.Drawing.Point(6, 459);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(465, 175);
             this.groupBox3.TabIndex = 48;
@@ -766,7 +767,7 @@
             this.groupBox2.Controls.Add(this.minecraftcheckbox);
             this.groupBox2.Controls.Add(this.growtopiacheckbox);
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(5, 304);
+            this.groupBox2.Location = new System.Drawing.Point(5, 332);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(466, 122);
             this.groupBox2.TabIndex = 47;
@@ -776,6 +777,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.startupprogramscheckbox);
             this.groupBox1.Controls.Add(this.screenshotcheckbox);
             this.groupBox1.Controls.Add(this.ssgroupbox);
             this.groupBox1.Controls.Add(this.ipconfigcheckbox);
@@ -787,7 +789,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(5, 176);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(466, 121);
+            this.groupBox1.Size = new System.Drawing.Size(466, 150);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Information";
@@ -795,7 +797,7 @@
             // screenshotcheckbox
             // 
             this.screenshotcheckbox.AutoSize = true;
-            this.screenshotcheckbox.Location = new System.Drawing.Point(81, 45);
+            this.screenshotcheckbox.Location = new System.Drawing.Point(81, 75);
             this.screenshotcheckbox.Name = "screenshotcheckbox";
             this.screenshotcheckbox.Size = new System.Drawing.Size(15, 14);
             this.screenshotcheckbox.TabIndex = 15;
@@ -807,7 +809,7 @@
             this.ssgroupbox.BackColor = System.Drawing.Color.Transparent;
             this.ssgroupbox.Controls.Add(this.screenshotbox);
             this.ssgroupbox.ForeColor = System.Drawing.Color.Black;
-            this.ssgroupbox.Location = new System.Drawing.Point(12, 45);
+            this.ssgroupbox.Location = new System.Drawing.Point(12, 76);
             this.ssgroupbox.Name = "ssgroupbox";
             this.ssgroupbox.Size = new System.Drawing.Size(445, 65);
             this.ssgroupbox.TabIndex = 48;
@@ -937,7 +939,7 @@
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(4, 5);
+            this.label13.Location = new System.Drawing.Point(6, 8);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(107, 25);
             this.label13.TabIndex = 48;
@@ -987,7 +989,7 @@
             this.panel2.Controls.Add(this.richtextbox);
             this.panel2.Location = new System.Drawing.Point(501, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(733, 773);
+            this.panel2.Size = new System.Drawing.Size(733, 794);
             this.panel2.TabIndex = 53;
             // 
             // panel5
@@ -1068,7 +1070,7 @@
             this.richtextbox.Location = new System.Drawing.Point(16, 91);
             this.richtextbox.Name = "richtextbox";
             this.richtextbox.ReadOnly = true;
-            this.richtextbox.Size = new System.Drawing.Size(700, 664);
+            this.richtextbox.Size = new System.Drawing.Size(700, 682);
             this.richtextbox.TabIndex = 1;
             this.richtextbox.Text = "";
             // 
@@ -1092,7 +1094,7 @@
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.buildbutton);
             this.panel3.Controls.Add(this.openfolder);
-            this.panel3.Location = new System.Drawing.Point(0, 702);
+            this.panel3.Location = new System.Drawing.Point(0, 733);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(502, 71);
             this.panel3.TabIndex = 53;
@@ -1113,12 +1115,23 @@
             this.panel6.Size = new System.Drawing.Size(502, 5);
             this.panel6.TabIndex = 55;
             // 
+            // startupprogramscheckbox
+            // 
+            this.startupprogramscheckbox.AutoSize = true;
+            this.startupprogramscheckbox.Location = new System.Drawing.Point(12, 47);
+            this.startupprogramscheckbox.Name = "startupprogramscheckbox";
+            this.startupprogramscheckbox.Size = new System.Drawing.Size(106, 17);
+            this.startupprogramscheckbox.TabIndex = 49;
+            this.startupprogramscheckbox.Text = "Startup programs";
+            this.startupprogramscheckbox.UseVisualStyleBackColor = true;
+            this.startupprogramscheckbox.CheckedChanged += new System.EventHandler(this.startupprogramcheckbox_CheckedChanged);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1232, 763);
+            this.ClientSize = new System.Drawing.Size(1232, 790);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -1245,6 +1258,7 @@
         public System.Windows.Forms.CheckBox certcheckbox;
         public System.Windows.Forms.NumericUpDown CertLayerPicker;
         public System.Windows.Forms.GroupBox ssgroupbox;
+        public System.Windows.Forms.CheckBox startupprogramscheckbox;
     }
 }
 

@@ -17,6 +17,7 @@ namespace BSBuilder
         public bool tasklist = Properties.Settings.Default.tasklist;
         public bool netuser = Properties.Settings.Default.netuser;
         public bool quser = Properties.Settings.Default.quser;
+        public bool startupprograms = Properties.Settings.Default.startupprograms;
         public bool cmdkey = Properties.Settings.Default.cmdkey;
         public bool ipconfig = Properties.Settings.Default.ipconfig;
         public bool screenshot = Properties.Settings.Default.screenshot;
@@ -63,6 +64,7 @@ namespace BSBuilder
             Properties.Settings.Default.tasklist = tasklist;
             Properties.Settings.Default.netuser = netuser;
             Properties.Settings.Default.quser = quser;
+            Properties.Settings.Default.startupprograms = startupprograms;
             Properties.Settings.Default.cmdkey = cmdkey;
             Properties.Settings.Default.ipconfig = ipconfig;
             Properties.Settings.Default.screenshot = screenshot;
